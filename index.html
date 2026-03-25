@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Not Alone In This — Addiction Resources for Everyone</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sage: #4a7c59;
+    --sage-light: #6a9e78;
+    --sage-pale: #e8f0ea;
+    --warm: #c17f3a;
+    --warm-pale: #faf3e8;
+    --charcoal: #1e2620;
+    --mid: #4a5550;
+    --light: #f5f7f5;
+    --white: #ffffff;
+    --border: #d4ddd6;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--light);
+    color: var(--charcoal);
+    line-height: 1.6;
+  }
+
+  /* HEADER */
+  header {
+    background: var(--charcoal);
+    padding: 0 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+  }
+
+  .logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.3rem;
+    color: var(--white);
+    letter-spacing: -0.02em;
+  }
+
+  .logo span { color: #7ec89a; }
+
+  nav { display: flex; gap: 1.5rem; }
+  nav a {
+    color: #aab8ad;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  nav a:hover { color: var(--white); }
+
+  /* HERO */
+  .hero {
+    background: var(--charcoal);
+    padding: 4rem 2rem 5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 60% 0%, rgba(74,124,89,0.25) 0%, transparent 65%),
+                radial-gradient(ellipse at 10% 100%, rgba(193,127,58,0.15) 0%, transparent 60%);
+  }
+
+  .hero-content { position: relative; max-width: 680px; margin: 0 auto; }
+
+  .hero-eyebrow {
+    display: inline-block;
+    background: rgba(126,200,154,0.15);
+    border: 1px solid rgba(126,200,154,0.3);
+    color: #7ec89a;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.35rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.2rem, 6vw, 3.5rem);
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 1.2rem;
+    letter-spacing: -0.02em;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: #7ec89a;
+  }
+
+  .hero p {
+    color: #8fa898;
+    font-size: 1.05rem;
+    max-width: 520px;
+    margin: 0 auto 2.5rem;
+    font-weight: 300;
+  }
+
+  .hero-tagline {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    color: #5a7a65;
+    font-size: 1rem;
+    margin-top: 1rem;
+  }
+
+  /* START HERE BANNER */
+  .start-here {
+    background: var(--warm-pale);
+    border-top: 3px solid var(--warm);
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .start-here h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem;
+    color: var(--charcoal);
+    margin-bottom: 0.4rem;
+  }
+
+  .start-here p {
+    color: #6b5b45;
+    font-size: 0.9rem;
+    margin-bottom: 1.25rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .start-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    justify-content: center;
+  }
+
+  .pill {
+    background: var(--white);
+    border: 1.5px solid #e8d5b8;
+    color: var(--mid);
+    padding: 0.55rem 1.2rem;
+    border-radius: 100px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .pill:hover, .pill.active {
+    background: var(--warm);
+    border-color: var(--warm);
+    color: var(--white);
+  }
+
+  /* MAIN */
+  .container { max-width: 1100px; margin: 0 auto; padding: 3rem 1.5rem; }
+
+  .section-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 0.5rem;
+  }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem;
+    color: var(--charcoal);
+    margin-bottom: 0.5rem;
+  }
+
+  .section-sub {
+    color: var(--mid);
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+    font-weight: 300;
+  }
+
+  /* BEGINNER EXPLAINERS */
+  .explainer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 3rem;
+  }
+
+  .explainer-card {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    padding: 1.75rem;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+
+  .explainer-card:hover {
+    border-color: var(--warm);
+    box-shadow: 0 8px 24px rgba(193,127,58,0.1);
+    transform: translateY(-2px);
+  }
+
+  .explainer-icon { font-size: 1.8rem; margin-bottom: 0.75rem; display: block; }
+
+  .explainer-card h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+    color: var(--charcoal);
+  }
+
+  .explainer-card p {
+    font-size: 0.85rem;
+    color: var(--mid);
+    line-height: 1.6;
+  }
+
+  /* URGENT BANNER */
+  .urgent-banner {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border-left: 4px solid #e74c3c;
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .urgent-icon { font-size: 2rem; flex-shrink: 0; }
+
+  .urgent-text h3 {
+    color: var(--white);
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .urgent-text p { color: #aab8c2; font-size: 0.88rem; }
+
+  .urgent-numbers {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-left: auto;
+  }
+
+  .hotline-btn {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.88rem;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    transition: background 0.2s;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+  }
+
+  .hotline-btn:hover { background: #c0392b; }
+
+  .hotline-btn.secondary {
+    background: transparent;
+    border: 1.5px solid #4a5568;
+    color: #aab8c2;
+  }
+
+  .hotline-btn.secondary:hover { border-color: #718096; color: white; }
+
+  /* SITUATION CARDS */
+  .situation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  .situation-card {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .situation-card:hover {
+    border-color: var(--sage);
+    background: var(--sage-pale);
+  }
+
+  .sit-icon { font-size: 2rem; margin-bottom: 0.75rem; display: block; }
+
+  .situation-card h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+    color: var(--charcoal);
+  }
+
+  .situation-card p { font-size: 0.8rem; color: var(--mid); }
+
+  /* RESOURCE CARDS */
+  .resource-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 3rem;
+  }
+
+  .resource-card {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.2s;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
+  .resource-card:hover {
+    border-color: var(--sage);
+    box-shadow: 0 8px 24px rgba(74,124,89,0.1);
+    transform: translateY(-2px);
+  }
+
+  .card-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    margin-bottom: 0.8rem;
+  }
+
+  .tag-crisis { background: #fde8e8; color: #c0392b; }
+  .tag-treatment { background: #e8f0ea; color: var(--sage); }
+  .tag-support { background: #e8f0fa; color: #2c5f8a; }
+  .tag-harm { background: #fef3e2; color: var(--warm); }
+  .tag-family { background: #f0e8fa; color: #6b4c8a; }
+  .tag-mental { background: #e8faf0; color: #2a7a5a; }
+  .tag-new { background: #fef9e2; color: #8a7a2a; }
+
+  .card-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.15rem;
+    margin-bottom: 0.4rem;
+    color: var(--charcoal);
+  }
+
+  .card-desc {
+    font-size: 0.88rem;
+    color: var(--mid);
+    line-height: 1.55;
+    margin-bottom: 1rem;
+  }
+
+  .card-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.78rem;
+    color: #8fa898;
+    flex-wrap: wrap;
+  }
+
+  .free-badge {
+    background: var(--sage-pale);
+    color: var(--sage);
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+  }
+
+  /* GLOSSARY */
+  .glossary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  .glossary-card {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+  }
+
+  .glossary-term {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--sage);
+    margin-bottom: 0.35rem;
+  }
+
+  .glossary-def {
+    font-size: 0.85rem;
+    color: var(--mid);
+    line-height: 1.55;
+  }
+
+  /* WHAT TO EXPECT */
+  .expect-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 3rem;
+  }
+
+  .expect-card {
+    background: var(--warm-pale);
+    border: 1.5px solid #e8d5b8;
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+
+  .expect-step {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--warm);
+    margin-bottom: 0.5rem;
+  }
+
+  .expect-card h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+    color: var(--charcoal);
+  }
+
+  .expect-card p {
+    font-size: 0.85rem;
+    color: #6b5b45;
+    line-height: 1.55;
+  }
+
+  /* SUGGEST */
+  .suggest-section {
+    background: var(--charcoal);
+    border-radius: 16px;
+    padding: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .suggest-section h2 {
+    font-family: 'DM Serif Display', serif;
+    color: var(--white);
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .suggest-section p {
+    color: #8fa898;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .suggest-form {
+    display: flex;
+    gap: 0.75rem;
+    max-width: 500px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .suggest-form input {
+    flex: 1;
+    min-width: 200px;
+    background: rgba(255,255,255,0.08);
+    border: 1.5px solid rgba(255,255,255,0.15);
+    color: var(--white);
+    padding: 0.75rem 1.1rem;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .suggest-form input::placeholder { color: #5a7060; }
+  .suggest-form input:focus { border-color: var(--sage-light); }
+
+  .btn-primary {
+    background: var(--sage);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    transition: background 0.2s;
+  }
+
+  .btn-primary:hover { background: var(--sage-light); }
+
+  .divider {
+    border: none;
+    border-top: 1.5px solid var(--border);
+    margin: 2.5rem 0;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--charcoal);
+    padding: 2rem;
+    text-align: center;
+    color: #5a7060;
+    font-size: 0.8rem;
+    line-height: 1.8;
+  }
+
+  footer a { color: #7ec89a; text-decoration: none; }
+
+  .footer-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.2rem;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-logo span { color: #7ec89a; }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-content { animation: fadeUp 0.6s ease both; }
+
+  @media (max-width: 600px) {
+    nav { display: none; }
+    .urgent-banner { flex-direction: column; }
+    .urgent-numbers { margin-left: 0; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">not alone <span>in this</span></div>
+  <nav>
+    <a href="#start">Start Here</a>
+    <a href="#resources">Resources</a>
+    <a href="#glossary">Glossary</a>
+    <a href="#expect">What to Expect</a>
+    <a href="#suggest">Suggest a Resource</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">Free · Judgment-Free · No Jargon</div>
+    <h1>You don't have to figure this out <em>alone</em></h1>
+    <p>Whether you're struggling yourself, supporting someone you love, or just starting to ask questions — this is a place to start. No judgment. No pressure. Just real information.</p>
+    <p class="hero-tagline">For people who are new to all of this.</p>
+  </div>
+</section>
+
+<!-- START HERE -->
+<div class="start-here" id="start">
+  <h2>Where are you right now?</h2>
+  <p>Everyone's starting point is different. Pick the one that feels closest to you.</p>
+  <div class="start-pills">
+    <button class="pill active" onclick="filterPills(this)">Show Everything</button>
+    <button class="pill" onclick="filterPills(this)">I think I might have a problem</button>
+    <button class="pill" onclick="filterPills(this)">I want to stop but don't know how</button>
+    <button class="pill" onclick="filterPills(this)">Someone I love is struggling</button>
+    <button class="pill" onclick="filterPills(this)">I just got out of treatment</button>
+    <button class="pill" onclick="filterPills(this)">I've tried before and it didn't work</button>
+    <button class="pill" onclick="filterPills(this)">I just want to be safer</button>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- CRISIS -->
+  <div class="urgent-banner">
+    <div class="urgent-icon">🚨</div>
+    <div class="urgent-text">
+      <h3>In crisis right now?</h3>
+      <p>These lines are free, confidential, and available 24/7. A real person will answer.</p>
+    </div>
+    <div class="urgent-numbers">
+      <a href="tel:18006624357" class="hotline-btn">📞 SAMHSA Helpline<br><small>1-800-662-4357</small></a>
+      <a href="tel:988" class="hotline-btn secondary">📞 988 Crisis Line<br><small>Call or text 988</small></a>
+    </div>
+  </div>
+
+  <!-- NEW TO THIS -->
+  <div class="section-label">New to all of this?</div>
+  <div class="section-title">Start here — no experience needed</div>
+  <div class="section-sub">Most sites assume you already know what addiction is. We don't. These are the basics, explained plainly.</div>
+
+  <div class="explainer-grid">
+    <div class="explainer-card">
+      <span class="explainer-icon">🧠</span>
+      <h3>What is addiction, really?</h3>
+      <p>It's not a lack of willpower or a moral failure. Addiction is a brain condition that changes how people think, feel, and make decisions. Understanding this changes everything.</p>
+    </div>
+    <div class="explainer-card">
+      <span class="explainer-icon">🤔</span>
+      <h3>Is this actually a problem?</h3>
+      <p>Not sure if what you're experiencing — or watching someone else experience — counts as addiction? You're not alone in that question. Here's how to think it through.</p>
+    </div>
+    <div class="explainer-card">
+      <span class="explainer-icon">💬</span>
+      <h3>What do I even say?</h3>
+      <p>Whether you need to talk to a loved one, a doctor, or a hotline — the words can feel impossible. Here are real phrases that work, and ones to avoid.</p>
+    </div>
+    <div class="explainer-card">
+      <span class="explainer-icon">🗺️</span>
+      <h3>What are my options?</h3>
+      <p>Detox, inpatient, outpatient, MAT, peer support — it's overwhelming. Here's a plain-language breakdown of what each one means and who it's for.</p>
+    </div>
+    <div class="explainer-card">
+      <span class="explainer-icon">💔</span>
+      <h3>I've tried before and it didn't work</h3>
+      <p>Relapse is not failure. It's one of the most misunderstood parts of recovery. Here's what the research actually says — and why trying again makes sense.</p>
+    </div>
+    <div class="explainer-card">
+      <span class="explainer-icon">👨‍👩‍👧</span>
+      <h3>My person won't get help</h3>
+      <p>You can't force someone into recovery. But there are things that help and things that make it worse. This guide is for the people watching from the sidelines.</p>
+    </div>
+  </div>
+
+  <hr class="divider" id="resources">
+
+  <!-- FIND BY SITUATION -->
+  <div class="section-label">Browse by situation</div>
+  <div class="section-title">What kind of help are you looking for?</div>
+  <div class="section-sub">Each path leads to resources for that specific moment.</div>
+
+  <div class="situation-grid">
+    <div class="situation-card">
+      <span class="sit-icon">🏥</span>
+      <h3>Find Treatment</h3>
+      <p>Inpatient, outpatient, detox — how to find what fits you</p>
+    </div>
+    <div class="situation-card">
+      <span class="sit-icon">💊</span>
+      <h3>Medication Options</h3>
+      <p>Suboxone, Vivitrol, methadone — what they are & where to get them</p>
+    </div>
+    <div class="situation-card">
+      <span class="sit-icon">🛡️</span>
+      <h3>Harm Reduction</h3>
+      <p>Naloxone, fentanyl test strips, staying safer right now</p>
+    </div>
+    <div class="situation-card">
+      <span class="sit-icon">💙</span>
+      <h3>For Families</h3>
+      <p>What to say, what to do, and how to take care of yourself too</p>
+    </div>
+    <div class="situation-card">
+      <span class="sit-icon">🌱</span>
+      <h3>Life After Treatment</h3>
+      <p>Housing, jobs, relationships — the messy middle nobody talks about</p>
+    </div>
+    <div class="situation-card">
+      <span class="sit-icon">🧠</span>
+      <h3>Mental Health + Addiction</h3>
+      <p>When anxiety, depression, or trauma are part of the picture too</p>
+    </div>
+  </div>
+
+  <!-- RESOURCES -->
+  <div class="section-label">Resource directory</div>
+  <div class="section-title">Real resources — with real explanations</div>
+  <div class="section-sub">We explain what each one actually is, not just drop a link.</div>
+
+  <div class="resource-grid">
+    <a href="https://www.samhsa.gov/find-help/national-helpline" target="_blank" class="resource-card">
+      <span class="card-tag tag-crisis">Crisis</span>
+      <div class="card-title">SAMHSA National Helpline</div>
+      <div class="card-desc">Free, confidential, 24/7 treatment referral. A real person answers. They'll help you find local programs that fit your insurance — or lack of one. No record is created.</div>
+      <div class="card-meta"><span>📞 1-800-662-4357</span><span class="free-badge">Free</span></div>
+    </a>
+
+    <a href="https://findtreatment.gov" target="_blank" class="resource-card">
+      <span class="card-tag tag-treatment">Treatment</span>
+      <div class="card-title">SAMHSA Treatment Locator</div>
+      <div class="card-desc">Search by zip code for treatment near you. Filter by type (detox, inpatient, outpatient), payment options, and Medicaid acceptance.</div>
+      <div class="card-meta"><span>🌐 findtreatment.gov</span><span class="free-badge">Free Tool</span></div>
+    </a>
+
+    <a href="https://www.buppractice.com/find-a-doctor" target="_blank" class="resource-card">
+      <span class="card-tag tag-treatment">Medication (MAT)</span>
+      <div class="card-title">Find a Buprenorphine Doctor</div>
+      <div class="card-desc">Suboxone requires a prescription. This directory helps you find a certified provider near you. Many offer telehealth so you can start from home.</div>
+      <div class="card-meta"><span>💊 Provider directory</span></div>
+    </a>
+
+    <a href="https://nextdistro.org" target="_blank" class="resource-card">
+      <span class="card-tag tag-harm">Harm Reduction</span>
+      <div class="card-title">Next Distro — Free Naloxone</div>
+      <div class="card-desc">Mail-order naloxone (Narcan) delivered to your door. No questions, no judgment. Available in most states for free. Naloxone reverses an overdose.</div>
+      <div class="card-meta"><span>📦 Mail delivery</span><span class="free-badge">Free</span></div>
+    </a>
+
+    <a href="https://www.smartrecovery.org" target="_blank" class="resource-card">
+      <span class="card-tag tag-support">Peer Support</span>
+      <div class="card-title">SMART Recovery</div>
+      <div class="card-desc">A science-based alternative to 12-step. Online and in-person meetings, tools for managing urges, supportive community. No higher power required.</div>
+      <div class="card-meta"><span>👥 Online & in-person</span><span class="free-badge">Free</span></div>
+    </a>
+
+    <a href="https://al-anon.org" target="_blank" class="resource-card">
+      <span class="card-tag tag-family">For Families</span>
+      <div class="card-title">Al-Anon Family Groups</div>
+      <div class="card-desc">For people whose loved ones struggle with substances. Meetings focus on your wellbeing — not fixing the other person. Online and in-person available.</div>
+      <div class="card-meta"><span>💙 For families & friends</span><span class="free-badge">Free</span></div>
+    </a>
+
+    <a href="https://www.shatterproof.org" target="_blank" class="resource-card">
+      <span class="card-tag tag-family">For Families</span>
+      <div class="card-title">Shatterproof</div>
+      <div class="card-desc">Practical guides for families — what to say, what not to say, how to set boundaries, how to find treatment for your loved one.</div>
+      <div class="card-meta"><span>📖 Guides & resources</span><span class="free-badge">Free</span></div>
+    </a>
+
+    <a href="https://www.nami.org/Support-Education/Support-Groups" target="_blank" class="resource-card">
+      <span class="card-tag tag-mental">Mental Health</span>
+      <div class="card-title">NAMI Support Groups</div>
+      <div class="card-desc">Free peer-led groups for people with mental health conditions, including co-occurring addiction. Judgment-free, available in most cities and online.</div>
+      <div class="card-meta"><span>🧠 Mental health focus</span><span class="free-badge">Free</span></div>
+    </a>
+
+    <a href="https://www.intherooms.com" target="_blank" class="resource-card">
+      <span class="card-tag tag-support">Peer Support</span>
+      <div class="card-title">In The Rooms</div>
+      <div class="card-desc">Online recovery community with 24/7 virtual meetings for AA, NA, and many other programs. Great for privacy or if you're in a rural area.</div>
+      <div class="card-meta"><span>💻 100% online</span><span class="free-badge">Free</span></div>
+    </a>
+  </div>
+
+  <hr class="divider" id="glossary">
+
+  <!-- GLOSSARY -->
+  <div class="section-label">Plain language glossary</div>
+  <div class="section-title">Words you'll hear — explained simply</div>
+  <div class="section-sub">The addiction world has a lot of jargon. Here's what it actually means.</div>
+
+  <div class="glossary-grid">
+    <div class="glossary-card">
+      <div class="glossary-term">Detox</div>
+      <div class="glossary-def">The process of clearing substances from your body, usually with medical supervision. It's the first step — not a full treatment on its own.</div>
+    </div>
+    <div class="glossary-card">
+      <div class="glossary-term">Inpatient / Residential</div>
+      <div class="glossary-def">You live at the treatment facility, usually 28–90 days. More intensive, more structured — good for people who need to step away from their environment.</div>
+    </div>
+    <div class="glossary-card">
+      <div class="glossary-term">Outpatient (IOP)</div>
+      <div class="glossary-def">You go to treatment several hours a day but live at home. IOP = Intensive Outpatient Program. Works well if you have a stable home environment.</div>
+    </div>
+    <div class="glossary-card">
+      <div class="glossary-term">MAT</div>
+      <div class="glossary-def">Medication-Assisted Treatment. Using FDA-approved medications (like Suboxone or Vivitrol) alongside counseling. Highly effective — not "trading one addiction for another."</div>
+    </div>
+    <div class="glossary-card">
+      <div class="glossary-term">Naloxone (Narcan)</div>
+      <div class="glossary-def">A medication that reverses an opioid overdose within minutes. Easy to use as a nasal spray. Everyone who knows someone using opioids should have it.</div>
+    </div>
+    <div class="glossary-card">
+      <div class="glossary-term">Harm Reduction</div>
+      <div class="glossary-def">Meeting people where they are. Providing safety information and supplies even if someone isn't ready to stop using — because their life still matters.</div>
+    </div>
+    <div class="glossary-card">
+      <div class="glossary-term">Relapse</div>
+      <div class="glossary-def">Using again after a period of not using. It's common — not a moral failure or a sign that recovery is impossible. Most people need multiple attempts.</div>
+    </div>
+    <div class="glossary-card">
+      <div class="glossary-term">Co-occurring Disorder</div>
+      <div class="glossary-def">When addiction and a mental health condition (like depression, anxiety, or PTSD) exist at the same time. Very common. Both need to be treated together.</div>
+    </div>
+    <div class="glossary-card">
+      <div class="glossary-term">Sober Living</div>
+      <div class="glossary-def">A shared housing option for people in early recovery. Structured, substance-free environment — a bridge between treatment and fully independent living.</div>
+    </div>
+  </div>
+
+  <hr class="divider" id="expect">
+
+  <!-- WHAT TO EXPECT -->
+  <div class="section-label">Demystifying the process</div>
+  <div class="section-title">What actually happens when you reach out</div>
+  <div class="section-sub">The unknown is what stops most people. Here's what to expect.</div>
+
+  <div class="expect-grid">
+    <div class="expect-card">
+      <div class="expect-step">Calling a helpline</div>
+      <h3>What happens when you call SAMHSA?</h3>
+      <p>A real person answers — not a robot. They'll ask about your location, situation, and insurance. No pressure, no record created. The call is completely confidential.</p>
+    </div>
+    <div class="expect-card">
+      <div class="expect-step">Starting MAT</div>
+      <h3>What does a Suboxone intake look like?</h3>
+      <p>A short appointment covering your medical history and current use. Most providers can prescribe same day. Telehealth options mean you can start from home in many states.</p>
+    </div>
+    <div class="expect-card">
+      <div class="expect-step">Entering treatment</div>
+      <h3>What does detox actually feel like?</h3>
+      <p>Depends on the substance. Medical detox monitors you around the clock. Withdrawal is uncomfortable but manageable with support. Most inpatient stays are 28–30 days.</p>
+    </div>
+    <div class="expect-card">
+      <div class="expect-step">After treatment</div>
+      <h3>What does "aftercare" actually mean?</h3>
+      <p>Outpatient therapy, sober living, peer support, MAT check-ins. The first 90 days after discharge are the hardest — good programs build a real plan for this phase.</p>
+    </div>
+  </div>
+
+  <hr class="divider" id="suggest">
+
+  <!-- SUGGEST -->
+  <div class="suggest-section">
+    <h2>Know a resource we're missing?</h2>
+    <p>This site stays useful because of people like you. Suggest a hotline, local program, or anything that helped you or someone you love.</p>
+    <div class="suggest-form">
+      <input type="text" placeholder="Resource name or URL...">
+      <button class="btn-primary">Suggest It →</button>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-logo">not alone <span>in this</span></div>
+  <p>An informational resource — not a medical provider. In an emergency, call 911.</p>
+  <p style="margin-top:0.5rem">
+    <a href="#">About</a> · <a href="#">Privacy</a> · <a href="#">Suggest a Resource</a>
+  </p>
+  <p style="margin-top:0.75rem; color: #3a4f40; font-style: italic;">"You don't have to figure this out alone."</p>
+</footer>
+
+<script>
+  function filterPills(el) {
+    document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+    el.classList.add('active');
+  }
+</script>
+
+</body>
+</html>
