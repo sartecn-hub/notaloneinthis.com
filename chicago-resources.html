@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chicago & Cook County Recovery Resources — Not Alone In This</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --border: #2e3350;
+      --accent: #6c8fff;
+      --accent2: #a78bfa;
+      --text: #e8eaf6;
+      --muted: #8892b0;
+      --green: #4ade80;
+      --red: #f87171;
+      --yellow: #fbbf24;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      background: rgba(15,17,23,0.95);
+      backdrop-filter: blur(10px);
+      z-index: 100;
+    }
+    .nav-brand { font-weight: 700; font-size: 1rem; color: var(--text); text-decoration: none; }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+
+    /* CRISIS BAR */
+    .crisis-bar {
+      background: linear-gradient(135deg, #7f1d1d, #991b1b);
+      padding: 0.75rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      text-align: center;
+    }
+    .crisis-bar span { font-size: 0.85rem; font-weight: 600; color: #fca5a5; }
+    .crisis-bar a {
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-decoration: none;
+      background: rgba(255,255,255,0.15);
+      padding: 0.3rem 0.8rem;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+    .crisis-bar a:hover { background: rgba(255,255,255,0.25); }
+
+    /* HERO */
+    .hero {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 5rem 2rem 3rem;
+      text-align: center;
+    }
+    .hero-tag {
+      display: inline-block;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.8rem;
+      border-radius: 99px;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .hero h1 em { font-style: italic; color: var(--accent); }
+    .hero p { color: var(--muted); font-size: 1.1rem; max-width: 560px; margin: 0 auto 2rem; }
+    .jump-links {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .jump-links a {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+    }
+    .jump-links a:hover { border-color: var(--accent); color: var(--text); }
+
+    /* SECTIONS */
+    .section {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+      border-top: 1px solid var(--border);
+    }
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .section h2 {
+      font-size: 1.75rem;
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+    }
+    .section-intro {
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+      font-size: 1rem;
+      max-width: 640px;
+    }
+
+    /* MEETING TYPES */
+    .meeting-types {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+    .meeting-type {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+    }
+    .meeting-type .tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent2);
+      margin-bottom: 0.4rem;
+    }
+    .meeting-type h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.3rem; }
+    .meeting-type p { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
+
+    /* CTA CARD */
+    .cta-card {
+      background: linear-gradient(135deg, var(--surface2), #1e2240);
+      border: 1px solid var(--accent);
+      border-radius: 16px;
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .cta-card-text h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .cta-card-text p { color: var(--muted); font-size: 0.9rem; }
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #0f1117;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 0.7rem 1.5rem;
+      border-radius: 10px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: opacity 0.2s;
+    }
+    .btn:hover { opacity: 0.85; }
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+    .btn-ghost:hover { border-color: var(--accent); }
+
+    /* RESOURCE CARDS */
+    .resource-grid {
+      display: grid;
+      gap: 1rem;
+    }
+    .resource-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.5rem;
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+      transition: border-color 0.2s;
+    }
+    .resource-card:hover { border-color: var(--accent); }
+    .resource-icon {
+      font-size: 1.5rem;
+      width: 48px;
+      height: 48px;
+      background: var(--surface2);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .resource-body { flex: 1; min-width: 0; }
+    .resource-meta {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.4rem;
+    }
+    .badge {
+      font-size: 0.68rem;
+      font-weight: 600;
+      padding: 0.15rem 0.55rem;
+      border-radius: 99px;
+      letter-spacing: 0.04em;
+    }
+    .badge-blue { background: rgba(108,143,255,0.15); color: var(--accent); }
+    .badge-green { background: rgba(74,222,128,0.15); color: var(--green); }
+    .badge-purple { background: rgba(167,139,250,0.15); color: var(--accent2); }
+    .badge-yellow { background: rgba(251,191,36,0.15); color: var(--yellow); }
+    .resource-body h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.35rem; }
+    .resource-body p { font-size: 0.87rem; color: var(--muted); margin-bottom: 0.75rem; line-height: 1.6; }
+    .resource-footer {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .resource-link {
+      font-size: 0.82rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .resource-link:hover { text-decoration: underline; }
+    .resource-detail {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    /* INFO BOXES */
+    .info-box {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 10px 10px 0;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .info-box strong { color: var(--text); }
+
+    /* ACCORDION */
+    details {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 0.75rem;
+      overflow: hidden;
+    }
+    summary {
+      padding: 1.1rem 1.5rem;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.95rem;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: '+'; color: var(--accent); font-size: 1.2rem; }
+    details[open] summary::after { content: '−'; }
+    details[open] summary { border-bottom: 1px solid var(--border); }
+    .details-body { padding: 1.25rem 1.5rem; font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
+    .details-body strong { color: var(--text); }
+
+    /* DIVIDER */
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 0;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 3rem 2rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border);
+    }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--text); }
+    .footer-brand { font-weight: 700; color: var(--text); margin-bottom: 0.5rem; font-size: 1rem; }
+
+    @media (max-width: 600px) {
+      nav { padding: 1rem; }
+      .nav-links { display: none; }
+      .cta-card { flex-direction: column; }
+      .resource-card { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="https://notaloneinthis.com" class="nav-brand">not alone in this</a>
+  <ul class="nav-links">
+    <li><a href="#meetings">Meetings</a></li>
+    <li><a href="#treatment">Treatment</a></li>
+    <li><a href="#sober-living">Sober Living</a></li>
+    <li><a href="#mat">MAT</a></li>
+    <li><a href="#harm-reduction">Harm Reduction</a></li>
+  </ul>
+</nav>
+
+<!-- CRISIS BAR -->
+<div class="crisis-bar">
+  <span>🚨 In crisis right now?</span>
+  <a href="tel:18006624357">📞 SAMHSA · 1-800-662-4357</a>
+  <a href="tel:988">📞 988 Crisis Line</a>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">Chicago & Cook County</div>
+  <h1>Recovery resources, <em>close to home.</em></h1>
+  <p>Real programs, real addresses, real explanations — for anyone in Cook County looking for AA meetings, treatment, sober living, or support. No jargon, no judgment.</p>
+  <div class="jump-links">
+    <a href="#meetings">🤝 AA Meetings</a>
+    <a href="#treatment">🏥 Treatment</a>
+    <a href="#sober-living">🏠 Sober Living</a>
+    <a href="#mat">💊 MAT</a>
+    <a href="#harm-reduction">🛡️ Harm Reduction</a>
+  </div>
+</div>
+
+<!-- ======= AA MEETINGS ======= -->
+<section class="section" id="meetings">
+  <div class="section-label">Step 1</div>
+  <h2>Find an AA Meeting</h2>
+  <p class="section-intro">AA meetings are free, confidential, and available every day across Cook County — in churches, community centers, online, and everywhere in between. There's no sign-up and you don't have to say anything your first time.</p>
+
+  <div class="meeting-types">
+    <div class="meeting-type">
+      <div class="tag">Open</div>
+      <h4>Open Meetings</h4>
+      <p>Anyone can attend — members, family, friends, or curious newcomers. No commitment needed.</p>
+    </div>
+    <div class="meeting-type">
+      <div class="tag">Closed</div>
+      <h4>Closed Meetings</h4>
+      <p>For people who identify as alcoholic or think they may have a problem with alcohol.</p>
+    </div>
+    <div class="meeting-type">
+      <div class="tag">Speaker</div>
+      <h4>Speaker Meetings</h4>
+      <p>One or two members share their personal story. Great for newcomers — mostly listening.</p>
+    </div>
+    <div class="meeting-type">
+      <div class="tag">Step Study</div>
+      <h4>Step Study</h4>
+      <p>The group works through one of the 12 Steps together. More structure, more discussion.</p>
+    </div>
+    <div class="meeting-type">
+      <div class="tag">Big Book</div>
+      <h4>Big Book</h4>
+      <p>Discussion meetings centered on readings from the AA text. Good for digging deeper.</p>
+    </div>
+    <div class="meeting-type">
+      <div class="tag">Online</div>
+      <h4>Online / Zoom</h4>
+      <p>Available 24/7. Great for privacy, late nights, or if you can't leave home.</p>
+    </div>
+  </div>
+
+  <div class="cta-card">
+    <div class="cta-card-text">
+      <h3>Chicago AA Meeting Finder</h3>
+      <p>Chicago AA maintains a live, searchable directory of 1,300+ meetings across Cook County. Filter by neighborhood, day, time, and meeting type.</p>
+    </div>
+    <a href="https://chicagoaa.org/meetings" target="_blank" class="btn">Find a Meeting →</a>
+  </div>
+
+  <div style="margin-top: 1.5rem;">
+    <div class="info-box">
+      <strong>Not sure what to expect?</strong> You can show up, sit in the back, and just listen. You don't have to introduce yourself or share. Most meetings end with coffee and people hanging around — that's where a lot of the real connection happens.
+    </div>
+    <div class="info-box">
+      <strong>Online meetings available 24/7.</strong> <a href="https://www.intherooms.com" target="_blank" style="color: var(--accent);">In The Rooms</a> and <a href="https://aa.org/find-aa" target="_blank" style="color: var(--accent);">AA's official online meeting list</a> both have meetings going around the clock — helpful for late nights or rural areas.
+    </div>
+  </div>
+</section>
+
+<!-- ======= TREATMENT ======= -->
+<section class="section" id="treatment">
+  <div class="section-label">Step 2</div>
+  <h2>Treatment Programs in Cook County</h2>
+  <p class="section-intro">If meetings alone aren't enough, or if you need medical support first, these are real programs in or near Cook County. Most accept Medicaid and offer sliding-scale fees — cost shouldn't stop you from calling.</p>
+
+  <details>
+    <summary>What's the difference between detox, residential, PHP, and IOP?</summary>
+    <div class="details-body">
+      <strong>Detox</strong> — Medical monitoring while your body clears alcohol. Usually 3–7 days. Often the first step if there's physical dependence. Don't try to detox from alcohol alone — it can be dangerous.<br><br>
+      <strong>Residential / Inpatient</strong> — You live at the facility, usually 28–90 days. Intensive, structured, and removes you from your environment. Best for people with severe addiction or unstable home situations.<br><br>
+      <strong>PHP (Partial Hospitalization Program)</strong> — Treatment several hours a day, 5 days a week, but you go home at night. A step down from residential.<br><br>
+      <strong>IOP (Intensive Outpatient Program)</strong> — Typically 3 days a week, 3 hours each session. More flexible — good if you're working or have family responsibilities.
+    </div>
+  </details>
+
+  <div class="resource-grid" style="margin-top: 1.5rem;">
+
+    <div class="resource-card">
+      <div class="resource-icon">🏥</div>
+      <div class="resource-body">
+        <div class="resource-meta">
+          <span class="badge badge-blue">Detox</span>
+          <span class="badge badge-blue">Residential</span>
+          <span class="badge badge-blue">IOP</span>
+          <span class="badge badge-green">Medicaid Accepted</span>
+        </div>
+        <h3>Gateway Foundation — Chicago Independence</h3>
+        <p>One of Chicago's largest and most established treatment providers. Offers the full continuum of care including detox, residential, and outpatient. Evidence-based, individualized treatment plans. Located near Independence Boulevard on the West Side.</p>
+        <div class="resource-footer">
+          <a href="https://www.gatewayfoundation.org/locations/chicago-independence/" target="_blank" class="resource-link">gatewayfoundation.org →</a>
+          <span class="resource-detail">📍 Chicago, IL</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="resource-card">
+      <div class="resource-icon">🏥</div>
+      <div class="resource-body">
+        <div class="resource-meta">
+          <span class="badge badge-blue">Detox</span>
+          <span class="badge badge-blue">Residential</span>
+          <span class="badge badge-blue">IOP</span>
+          <span class="badge badge-green">Medicaid Accepted</span>
+        </div>
+        <h3>Loretto Hospital — Residential Rehabilitation Program</h3>
+        <p>Over 40 years serving Chicago's west side. Offers four levels of care: detoxification, residential rehab, intensive outpatient, and aftercare. Certified by IDASA and ASAM. A community anchor, especially for uninsured and underinsured patients.</p>
+        <div class="resource-footer">
+          <a href="https://www.lorettohospital.org/our-services/behavioral-health-services/substance-use/" target="_blank" class="resource-link">lorettohospital.org →</a>
+          <span class="resource-detail">📞 (773) 854-5491</span>
+          <span class="resource-detail">📍 Chicago, IL</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="resource-card">
+      <div class="resource-icon">🏥</div>
+      <div class="resource-body">
+        <div class="resource-meta">
+          <span class="badge badge-blue">Residential</span>
+          <span class="badge badge-blue">IOP</span>
+          <span class="badge badge-blue">Sober Living</span>
+          <span class="badge badge-green">Medicaid Accepted</span>
+        </div>
+        <h3>Rosecrance Lakeview</h3>
+        <p>Nationally accredited, evidence-based treatment in Chicago's vibrant Lakeview neighborhood. Offers residential care, outpatient services, and an on-site sober living recovery home for young adults and adults. 12-Step integrated programming.</p>
+        <div class="resource-footer">
+          <a href="https://www.rosecrance.org/locations/rosecrance-lakeview/" target="_blank" class="resource-link">rosecrance.org →</a>
+          <span class="resource-detail">📍 Lakeview, Chicago</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="resource-card">
+      <div class="resource-icon">👩</div>
+      <div class="resource-body">
+        <div class="resource-meta">
+          <span class="badge badge-purple">Women Only</span>
+          <span class="badge badge-blue">Detox</span>
+          <span class="badge badge-blue">Residential</span>
+          <span class="badge badge-green">Free / Low Cost</span>
+        </div>
+        <h3>The Women's Treatment Center (TWTC)</h3>
+        <p>Located on Chicago's Near West Side, TWTC serves women — including pregnant women and mothers with children — with residential detox, rehab, and recovery housing. A charitable organization: no woman is denied care for financial reasons.</p>
+        <div class="resource-footer">
+          <a href="https://www.wtcchicago.org" target="_blank" class="resource-link">wtcchicago.org →</a>
+          <span class="resource-detail">📍 Near West Side, Chicago</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="resource-card">
+      <div class="resource-icon">🏥</div>
+      <div class="resource-body">
+        <div class="resource-meta">
+          <span class="badge badge-blue">Outpatient</span>
+          <span class="badge badge-blue">IOP</span>
+          <span class="badge badge-green">Medicaid Accepted</span>
+        </div>
+        <h3>Lutheran Social Services of Illinois — Addiction Treatment</h3>
+        <p>Multiple Chicago locations offering outpatient and intensive outpatient addiction treatment for men and women. Sliding fee scale available. Accepts Medicaid and state-funded insurance.</p>
+        <div class="resource-footer">
+          <a href="https://www.lssi.org" target="_blank" class="resource-link">lssi.org →</a>
+          <span class="resource-detail">📍 Multiple Chicago locations</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="resource-card">
+      <div class="resource-icon">🔍</div>
+      <div class="resource-body">
+        <div class="resource-meta">
+          <span class="badge badge-yellow">Search Tool</span>
+          <span class="badge badge-green">Free</span>
+        </div>
+        <h3>SAMHSA Treatment Locator</h3>
+        <p>Search every licensed treatment provider in Cook County by zip code. Filter by level of care, Medicaid acceptance, language, and more. The most comprehensive directory available.</p>
+        <div class="resource-footer">
+          <a href="https://findtreatment.gov" target="_blank" class="resource-link">findtreatment.gov →</a>
+          <span class="resource-detail">🌐 Search by zip code</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="info-box" style="margin-top: 1.5rem;">
+    <strong>No insurance?</strong> Don't let that stop you from calling. Most Cook County programs accept Medicaid, offer sliding-scale fees, or have state-funded beds. When you call, just say "I don't have insurance" — they've heard it before and have options.
+  </div>
+</section>
+
+<!-- ======= SOBER LIVING ======= -->
+<section class="section" id="sober-living">
+  <div class="section-label">Step 3</div>
+  <h2>Sober Living in Cook County</h2>
+  <p class="section-intro">Sober living homes are structured, substance-free housing — the bridge between treatment and going fully independent. Most require attendance at AA or NA meetings and a commitment to house rules. Some are free or very low cost.</p>
+
+  <div class="resource-grid">
+
+    <div class="resource-card">
+      <div class="resource-icon">🏠</div>
+      <div class="resource-body">
+        <div class="resource-meta">
+          <span class="badge badge-blue">Men & Women</span>
+          <span class="badge badge-green">AA Integrated</span>
+        </div>
+        <h3>RCOSA — Recovering Communities of Step Ahead</h3>
+        <p>A nonprofit sober living community in Chicago's Edgewater neighborhood, founded in 1992. Fully furnished apartments and private rooms, weekly AA meetings on-site, and a strong community culture. Focused on helping residents achieve at least one year of sobriety.</p>
+        <div class="resource-footer">
+          <a href="https://rcosa.org" target="_blank" class="resource-link">rcosa.org →</a>
+          <span class="resource-detail">📍 Edgewater, Chicago</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="resource-card">
+      <div class="resource-icon">🏠</div>
+      <div class="resource-body">
+        <div class="resource-meta">
+          <span class="badge badge-purple">Women Only</span>
+          <span class="badge badge-green">AA Integrated</span>
+        </div>
+        <h3>Ignatia House</h3>
+        <p>A small, intimate sober living community exclusively for women in Chicago. On-site and community AA meetings. Communal living designed to empower women in early recovery and help build the tools for a sober life.</p>
+        <div class="resource-footer">
+          <a href="https://www.ignatiahouse.org" target="_blank" class="resource-link">ignatiahouse.org →</a>
+          <span class="resource-detail">📍 Chicago, IL</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="resource-card">
+      <div class="resource-icon">🏠</div>
+      <div class="resource-body">
+        <div class="resource-meta">
+          <span class="badge badge-blue">Men & Women</span>
+          <span class="badge badge-green">AA/NA Integrated</span>
+        </div>
+        <h3>Gateway Foundation — Kedzie Sober Living</h3>
+        <p>A recovery home in Chicago's Humboldt Park neighborhood providing stable, safe housing after treatment. Residents have access to outpatient services on-site. Part of the Gateway Foundation network.</p>
+        <div class="resource-footer">
+          <a href="https://www.gatewayfoundation.org" target="_blank" class="resource-link">gatewayfoundation.org →</a>
+          <span class="resource-detail">📍 Humboldt Park, Chicago</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="resource-card">
+      <div class="resource-icon">🏠</div>
+      <div class="resource-body">
+        <div class="resource-meta">
+          <span class="badge badge-blue">Men & Women</span>
+          <span class="badge badge-green">Free / Subsidized</span>
+        </div>
+        <h3>ReVive Center (formerly Cathedral Shelters)</h3>
+        <p>A certified long-term residential addiction treatment program and affordable housing provider, primarily serving homeless men and those involved in the criminal justice system. Free of charge to those in need.</p>
+        <div class="resource-footer">
+          <a href="https://www.revivecenter.org" target="_blank" class="resource-link">revivecenter.org →</a>
+          <span class="resource-detail">📍 Chicago, IL</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="resource-card">
+      <div class="resource-icon">🏠</div>
+      <div class="resource-body">
+        <div class="resource-meta">
+          <span class="badge badge-blue">Men</span>
+          <span class="badge badge-green">AA Integrated</span>
+          <span class="badge badge-yellow">~$150/week</span>
+        </div>
+        <h3>Hendrickson House of Sobriety</h3>
+        <p>Men's sober living home in Chicago with in-house AA meetings, life skills training (credit repair, job hunting, interview skills), and affordable weekly rates. Walk-in closets, flexible room options.</p>
+        <div class="resource-footer">
+          <span class="resource-detail">📍 1328 S Komensky Ave, Chicago, IL 60623</span>
+          <span class="resource-detail">📞 (612) 685-4958</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ======= MAT ======= -->
+<section class="section" id="mat">
+  <div class="section-label">Medication Support</div>
+  <h2>Medication-Assisted Treatment (MAT)</h2>
+  <p class="section-intro">MAT uses FDA-approved medications alongside counseling to treat alcohol and opioid use disorders. It's not "trading one addiction for another" — it's evidence-based medicine that significantly improves recovery outcomes. Many people in AA also use MAT.</p>
+
+  <details>
+    <summary>What medications are used for alcohol use disorder?</summary>
+    <div class="details-body">
+      <strong>Naltrexone (Vivitrol)</strong> — Reduces cravings and blocks the "reward" feeling from alcohol. Available as a daily pill or a monthly injection. No risk of dependence.<br><br>
+      <strong>Acamprosate (Campral)</strong> — Helps reduce the discomfort of early sobriety by stabilizing brain chemistry. Taken 3x daily.<br><br>
+      <strong>Disulfiram (Antabuse)</strong> — Causes an unpleasant physical reaction if you drink while taking it. Works best with strong motivation and support.
+    </div>
+  </details>
+
+  <div class="resource-grid" style="margin-top: 1.5rem;">
+
+    <div class="resource-card">
+      <div class="resource-icon">💊</div>
+      <div class="resource-body">
+        <div class="resource-meta">
+          <span class="badge badge-yellow">Search Tool</span>
+          <span class="badge badge-green">Free</span>
+        </div>
+        <h3>SAMHSA Buprenorphine Physician Locator</h3>
+        <p>Find a certified MAT provider near you in Cook County. Many offer telehealth, so you can start from home. Filter by location, insurance, and patient type.</p>
+        <div class="resource-footer">
+          <a href="https://www.buppractice.com/find-a-doctor" target="_blank" class="resource-link">Find a provider →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="resource-card">
+      <div class="resource-icon">🏥</div>
+      <div class="resource-body">
+        <div class="resource-meta">
+          <span class="badge badge-blue">MAT</span>
+          <span class="badge badge-purple">Women</span>
+          <span class="badge badge-green">Medicaid Accepted</span>
+        </div>
+        <h3>The Women's Treatment Center — Opioid Treatment Program</h3>
+        <p>SAMHSA-certified opioid treatment program on Chicago's Near West Side serving women, including pregnant women. Provides residential detox, rehab, and recovery housing alongside medication support.</p>
+        <div class="resource-footer">
+          <a href="https://www.wtcchicago.org" target="_blank" class="resource-link">wtcchicago.org →</a>
+          <span class="resource-detail">📍 Near West Side, Chicago</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="resource-card">
+      <div class="resource-icon">💊</div>
+      <div class="resource-body">
+        <div class="resource-meta">
+          <span class="badge badge-blue">MAT</span>
+          <span class="badge badge-green">Medicaid Accepted</span>
+        </div>
+        <h3>Cook County Health — Ruth M. Rothstein CORE Center</h3>
+        <p>Cook County's public health system offers outpatient and medication-based addiction treatment. Accepts Medicaid, state-funded insurance, and payment assistance. Located at 2020 W. Harrison St.</p>
+        <div class="resource-footer">
+          <a href="https://cookcountyhealth.org" target="_blank" class="resource-link">cookcountyhealth.org →</a>
+          <span class="resource-detail">📍 2020 W Harrison St, Chicago</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ======= HARM REDUCTION ======= -->
+<section class="section" id="harm-reduction">
+  <div class="section-label">If You're Not Ready Yet</div>
+  <h2>Harm Reduction Resources</h2>
+  <p class="section-intro">Not everyone is ready for treatment right now — and that's real. Harm reduction meets people where they are. If someone is still using, keeping them alive and safer is the priority. Recovery can come later. These resources don't judge.</p>
+
+  <div class="resource-grid">
+
+    <div class="resource-card">
+      <div class="resource-icon">💉</div>
+      <div class="resource-body">
+        <div class="resource-meta">
+          <span class="badge badge-green">Free</span>
+          <span class="badge badge-blue">Mail Delivery</span>
+        </div>
+        <h3>Next Distro — Free Naloxone by Mail</h3>
+        <p>Mail-order naloxone (Narcan) delivered directly to your door — no questions, no judgment. Available in most states for free. Naloxone reverses an opioid overdose within minutes and is easy to use as a nasal spray. Everyone who knows someone using opioids should have it.</p>
+        <div class="resource-footer">
+          <a href="https://nextdistro.org" target="_blank" class="resource-link">nextdistro.org →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="resource-card">
+      <div class="resource-icon">🛡️</div>
+      <div class="resource-body">
+        <div class="resource-meta">
+          <span class="badge badge-green">Free</span>
+          <span class="badge badge-blue">Chicago</span>
+        </div>
+        <h3>Chicago Recovery Alliance (CRA)</h3>
+        <p>One of the oldest and most respected harm reduction organizations in the country, right here in Chicago. Distributes naloxone, fentanyl test strips, clean supplies, and provides referrals to treatment — without pressure or judgment.</p>
+        <div class="resource-footer">
+          <a href="https://www.anyoneanyone.org" target="_blank" class="resource-link">anyoneanyone.org →</a>
+          <span class="resource-detail">📍 Chicago, IL</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="resource-card">
+      <div class="resource-icon">🧪</div>
+      <div class="resource-body">
+        <div class="resource-meta">
+          <span class="badge badge-green">Free</span>
+        </div>
+        <h3>NEXT Illinois — Fentanyl Test Strips</h3>
+        <p>Free fentanyl test strips available across Illinois, including Cook County. Fentanyl is now found in many drugs beyond opioids. Testing before use can prevent a fatal overdose. No prescription needed.</p>
+        <div class="resource-footer">
+          <a href="https://www.nextillinois.org" target="_blank" class="resource-link">nextillinois.org →</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="info-box" style="margin-top: 1.5rem;">
+    <strong>Illinois Good Samaritan Law:</strong> If you call 911 for an overdose in Illinois, you and the person overdosing are protected from arrest for drug possession. Don't hesitate to call.
+  </div>
+</section>
+
+<!-- FOOTER CTA -->
+<section style="max-width: 860px; margin: 0 auto; padding: 2rem 2rem 4rem;">
+  <div class="cta-card">
+    <div class="cta-card-text">
+      <h3>Know a resource we're missing?</h3>
+      <p>This page stays useful because of people like you. If you know a meeting, program, or organization that helped — tell us.</p>
+    </div>
+    <a href="https://notaloneinthis.com#suggest" class="btn btn-ghost">Suggest a Resource →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">not alone in this</div>
+  <p>An informational resource — not a medical provider. In an emergency, call 911.</p>
+  <p style="margin-top: 0.5rem;">
+    <a href="https://notaloneinthis.com">← Back to main site</a> · <a href="#">About</a> · <a href="#">Privacy</a>
+  </p>
+  <p style="margin-top: 1rem; font-size: 0.78rem;">"You don't have to figure this out alone."</p>
+</footer>
+
+</body>
+</html>
