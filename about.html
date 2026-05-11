@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Not Alone In This</title>
+  <meta name="description" content="About Not Alone In This — a free addiction and recovery resource site built by a behavioral health professional in Chicago." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --emerald: #0E9E6E;
+      --emerald-dark: #0A7D57;
+      --emerald-light: #ECFDF5;
+      --rose: #C4956A;
+      --rose-dark: #A87B54;
+      --rose-light: #FDF5EF;
+      --rose-bg: #F5EDE5;
+      --blue: #3B82C4;
+      --blue-light: #EFF6FF;
+      --blue-bg: #F5F9FF;
+      --text: #1A1A1A;
+      --text-muted: #777;
+      --text-light: #999;
+      --border: #EDE8E3;
+      --bg: #FAF7F5;
+      --white: #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; }
+
+    /* ── SKIP NAV ── */
+    .skip-nav {
+      position: absolute;
+      top: -100px;
+      left: 1rem;
+      background: var(--emerald);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      z-index: 9999;
+      transition: top 0.2s;
+    }
+    .skip-nav:focus { top: 1rem; }
+
+    /* ── NAV ── */
+    .nav {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 62px;
+      position: sticky;
+      top: 0;
+      z-index: 200;
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: 0.2px;
+      white-space: nowrap;
+    }
+    .nav-logo span { color: var(--emerald); }
+    .nav-links { display: flex; gap: 24px; list-style: none; }
+    .nav-links a {
+      text-decoration: none;
+      color: #666;
+      font-size: 13px;
+      font-weight: 400;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--emerald); }
+    .nav-cta {
+      background: var(--rose);
+      color: var(--white);
+      border: none;
+      border-radius: 30px;
+      padding: 9px 20px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+    .nav-cta:hover { background: var(--rose-dark); }
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+    }
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem 1.5rem;
+      gap: 14px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      text-decoration: none;
+      color: #555;
+      font-size: 15px;
+    }
+    .mobile-menu a:hover { color: var(--emerald); }
+    .mobile-menu .nav-cta { text-align: center; margin-top: 4px; }
+
+    /* ── BUTTONS ── */
+    .btn-primary {
+      background: var(--emerald);
+      color: var(--white);
+      border: none;
+      border-radius: 30px;
+      padding: 13px 28px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s;
+    }
+    .btn-primary:hover { background: var(--emerald-dark); }
+    .btn-outline {
+      background: transparent;
+      color: var(--blue);
+      border: 1.5px solid var(--blue);
+      border-radius: 30px;
+      padding: 12px 26px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s;
+    }
+    .btn-outline:hover { background: var(--blue-light); }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 60px 2rem 56px;
+    }
+    .page-hero-inner {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 16px;
+    }
+    .eyebrow::before {
+      content: '';
+      display: block;
+      width: 22px;
+      height: 1px;
+      background: var(--rose);
+    }
+    .page-hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px;
+      font-weight: 600;
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 18px;
+      letter-spacing: -0.5px;
+    }
+    .page-hero h1 em {
+      font-style: italic;
+      color: var(--emerald);
+    }
+    .page-hero .lead {
+      font-size: 16px;
+      color: var(--text-muted);
+      font-weight: 300;
+      line-height: 1.75;
+      max-width: 560px;
+    }
+
+    /* ── MAIN CONTENT ── */
+    .content-wrap {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 60px 2rem;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    /* ── PROSE ── */
+    .prose { max-width: 620px; }
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 10px;
+    }
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 16px;
+      height: 1px;
+      background: var(--rose);
+    }
+    .prose h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 16px;
+      letter-spacing: -0.3px;
+    }
+    .prose p {
+      font-size: 15px;
+      color: #555;
+      font-weight: 300;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .prose p:last-child { margin-bottom: 0; }
+    .prose strong { font-weight: 500; color: var(--text); }
+
+    .prose-block {
+      margin-bottom: 52px;
+    }
+    .prose-block:last-child { margin-bottom: 0; }
+
+    /* ── CREDENTIAL CHIPS ── */
+    .cred-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+      margin-bottom: 8px;
+    }
+    .cred-chip {
+      background: var(--rose-light);
+      color: #A8764A;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      padding: 5px 12px;
+      border-radius: 20px;
+      border: 1px solid #F0DDD0;
+    }
+    .cred-chip.blue {
+      background: var(--blue-light);
+      color: #2563A8;
+      border-color: #C7DCEF;
+    }
+    .cred-chip.green {
+      background: var(--emerald-light);
+      color: #0A7D57;
+      border-color: #B6E8D7;
+    }
+
+    /* ── DIVIDER ── */
+    .prose-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 48px 0;
+    }
+
+    /* ── SIDEBAR ── */
+    .sidebar { display: flex; flex-direction: column; gap: 16px; position: sticky; top: 82px; }
+
+    .sidebar-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px;
+    }
+    .sidebar-card h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+    .sidebar-card p {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 300;
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+    .sidebar-card .sidebar-link {
+      font-size: 13px;
+      color: var(--blue);
+      font-weight: 500;
+      text-decoration: none;
+    }
+    .sidebar-card .sidebar-link:hover { text-decoration: underline; }
+
+    .sidebar-card.emerald {
+      background: var(--emerald-light);
+      border-color: #B6E8D7;
+    }
+    .sidebar-card.emerald h4 { color: var(--emerald-dark); }
+    .sidebar-card.emerald p { color: #2D6B56; }
+
+    .sidebar-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .sidebar-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 300;
+      line-height: 1.5;
+    }
+    .sidebar-list li::before {
+      content: '→';
+      color: var(--rose);
+      font-size: 12px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ── VALUES GRID ── */
+    .values-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .value-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px;
+      border-left: 3px solid var(--emerald);
+    }
+    .value-card h5 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 5px;
+    }
+    .value-card p { font-size: 12px; color: #888; line-height: 1.55; font-weight: 300; margin: 0; }
+
+    /* ── CTA BAND ── */
+    .cta-band {
+      background: var(--rose-bg);
+      border-top: 1px solid var(--border);
+      padding: 52px 2rem;
+      text-align: center;
+    }
+    .cta-band h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+    .cta-band p {
+      font-size: 15px;
+      color: var(--text-muted);
+      font-weight: 300;
+      margin-bottom: 24px;
+    }
+    .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 52px 2rem 28px;
+    }
+    .footer-inner { max-width: 1040px; margin: 0 auto; }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 36px;
+      margin-bottom: 28px;
+      border-bottom: 1px solid var(--border);
+    }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 10px;
+      text-decoration: none;
+      display: block;
+    }
+    .footer-logo span { color: var(--emerald); }
+    .footer-tagline {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 300;
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+    .footer-disclaimer { font-size: 12px; color: #999; }
+    footer h4 {
+      font-size: 10px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+      color: var(--rose);
+      margin-bottom: 14px;
+    }
+    footer ul { list-style: none; }
+    footer ul li { margin-bottom: 8px; }
+    footer ul a {
+      text-decoration: none;
+      font-size: 13px;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+    footer ul a:hover { color: var(--rose); }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: #999;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .footer-bottom em {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      color: var(--text-muted);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
+      .page-hero h1 { font-size: 36px; }
+      .content-wrap { grid-template-columns: 1fr; gap: 40px; }
+      .sidebar { position: static; }
+      .values-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <a class="skip-nav" href="#main">Skip to main content</a>
+
+  <!-- NAV -->
+  <nav class="nav" aria-label="Main navigation">
+    <a href="/" class="nav-logo">not alone in <span>this</span></a>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html#start">Start Here</a></li>
+      <li><a href="index.html#resources">Resources</a></li>
+      <li><a href="index.html#glossary">Glossary</a></li>
+      <li><a href="index.html#expect">What to Expect</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+    </ul>
+    <a class="nav-cta" href="index.html#resources">Find Resources</a>
+    <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false" onclick="toggleMenu(this)">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html#start" onclick="closeMobile()">Start Here</a>
+    <a href="index.html#resources" onclick="closeMobile()">Resources</a>
+    <a href="index.html#glossary" onclick="closeMobile()">Glossary</a>
+    <a href="index.html#expect" onclick="closeMobile()">What to Expect</a>
+    <a href="about.html" onclick="closeMobile()">About</a>
+    <a class="nav-cta" href="index.html#resources" onclick="closeMobile()">Find Resources</a>
+  </div>
+
+  <main id="main">
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+      <div class="page-hero-inner">
+        <div class="eyebrow">About this site</div>
+        <h1>Built by someone<br>in the <em>field</em></h1>
+        <p class="lead">Not Alone In This is a free, independent resource for anyone navigating addiction and recovery — whether that's you, or someone you love. No ads, no affiliates, no agenda. Just clear information from someone who works in this space every day.</p>
+      </div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content-wrap">
+
+      <!-- MAIN PROSE -->
+      <div class="prose">
+
+        <div class="prose-block">
+          <div class="section-label">About the site</div>
+          <h2>Why this site exists</h2>
+          <p>When people are in crisis — or quietly wondering if they have a problem — they turn to Google. What they find is usually a wall of treatment center ads, jargon-heavy clinical language, or hotline lists with no explanation of what actually happens when you call.</p>
+          <p>Not Alone In This was built to fill that gap. Every resource on this site is explained in plain language. Every page is written for a real person who is scared, confused, or just starting to ask questions — not for someone who already knows what "PHP" or "MAT" or "co-occurring disorder" means.</p>
+          <p>The site is <strong>completely free</strong>, has no advertising, and does not earn referral fees from any treatment center. It exists because good information — accessible, honest, and judgment-free — saves lives.</p>
+        </div>
+
+        <div class="values-grid">
+          <div class="value-card">
+            <h5>Plain language</h5>
+            <p>No acronyms without explanation. No clinical jargon. If it needs a glossary entry, it gets one.</p>
+          </div>
+          <div class="value-card">
+            <h5>No financial conflicts</h5>
+            <p>Zero ads. Zero affiliate links. Zero referral payments from treatment centers. Ever.</p>
+          </div>
+          <div class="value-card">
+            <h5>Evidence-informed</h5>
+            <p>Resources reflect current research and clinical best practices, not stigma or outdated thinking.</p>
+          </div>
+          <div class="value-card">
+            <h5>Locally grounded</h5>
+            <p>Special attention to Cook County and Chicago-area resources, because local matters.</p>
+          </div>
+        </div>
+
+        <hr class="prose-divider" />
+
+        <div class="prose-block">
+          <div class="section-label">About the founder</div>
+          <h2>Who's behind this</h2>
+          <p>This site was created and is maintained by a behavioral health professional based in the Chicago area with direct clinical experience across multiple levels of addiction treatment care.</p>
+          <p>Currently working as a <strong>Spravato (esketamine) Administration Specialist</strong> at a behavioral health clinic in the Chicago suburbs — serving as the sole trained specialist in that role — and pursuing a <strong>Master of Health Science (MHS) in Addictions Studies</strong> with a focus on evidence-based treatment and post-discharge support systems.</p>
+          <p>Prior experience includes working as a <strong>Behavioral Health Technician</strong> in residential substance use disorder treatment as well as partial hospitalization (PHP) and intensive outpatient (IOP) settings — the full continuum of care that most people navigate when they enter treatment.</p>
+          <p>The long-term goal is to become a <strong>Psychiatric Mental Health Nurse Practitioner (PMHNP)</strong> specializing in addictions, bringing together prescribing authority, therapy, and deep knowledge of the recovery process into integrated, whole-person care.</p>
+
+          <div class="cred-list">
+            <span class="cred-chip green">MHS in Addictions Studies (in progress)</span>
+            <span class="cred-chip green">CADC (in progress)</span>
+            <span class="cred-chip green">LPC (in progress)</span>
+            <span class="cred-chip blue">Spravato Administration Specialist</span>
+            <span class="cred-chip blue">Behavioral Health Technician — Residential SUD</span>
+            <span class="cred-chip blue">PHP &amp; IOP Experience</span>
+            <span class="cred-chip">Chicago, IL</span>
+          </div>
+        </div>
+
+        <hr class="prose-divider" />
+
+        <div class="prose-block">
+          <div class="section-label">What we cover</div>
+          <h2>What this site is — and isn't</h2>
+          <p>Not Alone In This is an <strong>informational resource</strong>. It is not a treatment provider, a crisis line, or a substitute for professional care. Nothing on this site constitutes medical or clinical advice.</p>
+          <p>What it is: a plain-language guide to the landscape of addiction and recovery — the options available, what they mean, what to expect, and where to go for real help. Think of it as a knowledgeable friend who works in the field and can walk you through your options before you make a call.</p>
+          <p>If you or someone you know is in crisis, please call <strong>988</strong> or the <strong>SAMHSA Helpline at 1-800-662-4357</strong>. Both are free, confidential, and available 24/7.</p>
+        </div>
+
+      </div>
+
+      <!-- SIDEBAR -->
+      <aside class="sidebar" aria-label="Quick links">
+
+        <div class="sidebar-card emerald">
+          <h4>In crisis right now?</h4>
+          <p>These lines are free, confidential, and answered by real people 24/7.</p>
+          <ul class="sidebar-list">
+            <li>988 Suicide &amp; Crisis Lifeline — call or text 988</li>
+            <li>SAMHSA Helpline — 1-800-662-4357</li>
+            <li>Illinois Helpline — 833-234-6343</li>
+          </ul>
+        </div>
+
+        <div class="sidebar-card">
+          <h4>New here?</h4>
+          <p>Not sure where to start? The "Start Here" section walks you through options based on where you are right now.</p>
+          <a class="sidebar-link" href="index.html#start">Go to Start Here →</a>
+        </div>
+
+        <div class="sidebar-card">
+          <h4>Chicago &amp; Cook County</h4>
+          <p>This site has a special focus on local Illinois resources — AA meetings, treatment centers, and state-specific hotlines.</p>
+          <a class="sidebar-link" href="index.html#resources">Browse resources →</a>
+        </div>
+
+        <div class="sidebar-card">
+          <h4>Suggest a resource</h4>
+          <p>Know a program, hotline, or service that should be on here? We want to hear about it.</p>
+          <a class="sidebar-link" href="mailto:sartecn@gmail.com?subject=Resource%20Suggestion">Send a suggestion →</a>
+        </div>
+
+      </aside>
+
+    </div>
+
+    <!-- CTA BAND -->
+    <div class="cta-band">
+      <h2>Ready to find help?</h2>
+      <p>Browse the resource directory or start with our plain-language guide to your options.</p>
+      <div class="cta-btns">
+        <a class="btn-primary" href="index.html#resources">Find Resources</a>
+        <a class="btn-outline" href="index.html#start">Start Here</a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <a href="/" class="footer-logo">not alone in <span>this</span></a>
+          <p class="footer-tagline">A free, judgment-free resource for people navigating addiction and recovery — and the people who love them. No ads. No jargon. No pressure.</p>
+          <p class="footer-disclaimer">Not a medical provider. In an emergency, call 911.</p>
+        </div>
+        <div>
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="index.html#resources">Find Treatment</a></li>
+            <li><a href="index.html#resources">Medication Options</a></li>
+            <li><a href="index.html#resources">Harm Reduction</a></li>
+            <li><a href="index.html#resources">For Families</a></li>
+            <li><a href="index.html#resources">Peer Support</a></li>
+            <li><a href="index.html#resources">Mental Health + Addiction</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Site</h4>
+          <ul>
+            <li><a href="index.html#start">Start Here</a></li>
+            <li><a href="index.html#glossary">Glossary</a></li>
+            <li><a href="index.html#expect">What to Expect</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="mailto:sartecn@gmail.com?subject=Resource%20Suggestion">Suggest a Resource</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Not Alone In This · notaloneinthis.com</span>
+        <em>"You don't have to figure this out alone."</em>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu(btn) {
+      var menu = document.getElementById('mobile-menu');
+      var open = menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open);
+    }
+    function closeMobile() {
+      document.getElementById('mobile-menu').classList.remove('open');
+      document.querySelector('.nav-hamburger').setAttribute('aria-expanded', 'false');
+    }
+    document.addEventListener('click', function(e) {
+      var menu = document.getElementById('mobile-menu');
+      var btn = document.querySelector('.nav-hamburger');
+      if (!menu.contains(e.target) && !btn.contains(e.target)) {
+        menu.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  </script>
+
+</body>
+</html>
