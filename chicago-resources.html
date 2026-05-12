@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Free Chicago Resources — Not Alone In This</title>
-  <meta name="description" content="Free addiction and recovery resources in Chicago and Cook County — hotlines, treatment centers, AA meetings, harm reduction, and more. No cost, no jargon." />
+  <title>Free Chicago Resources Not Alone In This</title>
+  <meta name="description" content="Free addiction and recovery resources in Chicago and Cook County hotlines, treatment centers, AA meetings, harm reduction, and more. No cost, no jargon." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -497,17 +497,131 @@
     .footer-bottom { display: flex; justify-content: space-between; font-size: 12px; color: #999; flex-wrap: wrap; gap: 8px; }
     .footer-bottom em { font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--text-muted); }
 
+    /* ── HERO VISUAL ── */
+    .page-hero {
+      background: linear-gradient(160deg, #0A7D57 0%, #0E9E6E 45%, #3B82C4 100%);
+      border-bottom: none;
+      padding: 0;
+      overflow: hidden;
+    }
+    .page-hero-inner {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 64px 2rem 0;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 40px;
+      align-items: end;
+    }
+    .hero-text-col { padding-bottom: 64px; }
+    .page-hero .eyebrow { color: rgba(255,255,255,0.75); }
+    .page-hero .eyebrow::before { background: rgba(255,255,255,0.5); }
+    .page-hero h1 { color: #fff; font-size: 46px; }
+    .page-hero h1 em { color: rgba(255,255,255,0.85); font-style: italic; }
+    .page-hero .lead { color: rgba(255,255,255,0.8); max-width: 460px; }
+    .page-hero .btn-primary {
+      background: #fff;
+      color: var(--emerald-dark);
+    }
+    .page-hero .btn-primary:hover { background: #F0FAF7; }
+    .hero-skyline {
+      align-self: end;
+      display: flex;
+      align-items: flex-end;
+      gap: 3px;
+      padding-top: 32px;
+      opacity: 0.22;
+    }
+    .bldg { background: #fff; border-radius: 2px 2px 0 0; flex-shrink: 0; }
+    .hero-stat-bar {
+      background: rgba(0,0,0,0.2);
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding: 14px 2rem;
+    }
+    .hero-stat-bar-inner {
+      max-width: 1040px;
+      margin: 0 auto;
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .hero-stat { display: flex; align-items: center; gap: 10px; font-size: 12px; color: rgba(255,255,255,0.7); }
+    .hero-stat strong { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: #fff; line-height: 1; }
+
+    /* ── SECTION BANNERS ── */
+    .section-banner {
+      border-radius: 14px;
+      padding: 20px 24px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+    .section-banner::after {
+      content: '';
+      position: absolute;
+      right: -20px; top: -20px;
+      width: 100px; height: 100px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.07);
+    }
+    .banner-em { background: linear-gradient(135deg, #0A7D57, #0E9E6E); }
+    .banner-rose { background: linear-gradient(135deg, #A87B54, #C4956A); }
+    .banner-blue { background: linear-gradient(135deg, #2563A8, #3B82C4); }
+    .banner-purple { background: linear-gradient(135deg, #5B2FA0, #7C52C8); }
+    .banner-teal { background: linear-gradient(135deg, #0E7A8A, #13A3B8); }
+    .banner-dark { background: linear-gradient(135deg, #1E1A17, #3A3228); }
+    .banner-icon { font-size: 34px; flex-shrink: 0; z-index: 1; }
+    .banner-text { z-index: 1; }
+    .banner-text h3 { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: #fff; margin-bottom: 2px; }
+    .banner-text p { font-size: 12px; color: rgba(255,255,255,0.72); font-weight: 300; line-height: 1.5; }
+
+    /* ── QUOTE STRIP ── */
+    .quote-strip {
+      background: #111;
+      border-radius: 14px;
+      padding: 24px 28px;
+      margin: 32px 0;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .quote-strip .qs-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 56px;
+      color: var(--emerald);
+      line-height: 0.8;
+      flex-shrink: 0;
+      margin-top: 6px;
+    }
+    .quote-strip blockquote { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-style: italic; color: #fff; line-height: 1.55; }
+    .quote-strip cite { display: block; font-size: 11px; color: rgba(255,255,255,0.45); font-style: normal; margin-top: 8px; text-transform: uppercase; letter-spacing: 0.8px; }
+
+    /* ── FACT STRIP ── */
+    .fact-strip { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin: 0 0 28px; }
+    .fact-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 18px 14px; text-align: center; }
+    .fact-card .fact-num { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 600; color: var(--emerald); line-height: 1; margin-bottom: 5px; }
+    .fact-card .fact-num.rose { color: var(--rose); }
+    .fact-card .fact-num.blue { color: var(--blue); }
+    .fact-card p { font-size: 11px; color: #888; line-height: 1.55; font-weight: 300; }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 860px) {
       .page-wrap { grid-template-columns: 1fr; }
       .sidebar { position: static; }
       .aa-grid { grid-template-columns: 1fr; }
+      .fact-strip { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 768px) {
       .nav-links, .nav-cta { display: none; }
       .nav-hamburger { display: flex; }
-      .page-hero h1 { font-size: 36px; }
+      .page-hero-inner { grid-template-columns: 1fr; }
+      .hero-skyline { display: none; }
+      .page-hero h1 { font-size: 34px; }
       .footer-top { grid-template-columns: 1fr; gap: 32px; }
+      .fact-strip { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -546,10 +660,41 @@
     <!-- HERO -->
     <div class="page-hero">
       <div class="page-hero-inner">
-        <div class="eyebrow">Chicago &amp; Cook County</div>
-        <h1>Free resources,<br>right <em>here in Chicago</em></h1>
-        <p class="lead">Every resource on this page is free or low-cost and available to Chicago and Cook County residents. No insurance required for most. Organized by what you need right now — crisis support, treatment, peer meetings, harm reduction, and more.</p>
-        <a class="btn-primary" href="tel:8332346343">IL Helpline: 833-234-6343</a>
+        <div class="hero-text-col">
+          <div class="eyebrow">Chicago &amp; Cook County</div>
+          <h1>Free resources,<br>right <em>here in Chicago</em></h1>
+          <p class="lead">Every resource on this page is free or low-cost and available to Chicago and Cook County residents. No insurance required for most. Organized by what you need right now.</p>
+          <a class="btn-primary" href="tel:8332346343">IL Helpline: 833-234-6343</a>
+        </div>
+        <div class="hero-skyline" aria-hidden="true">
+          <div class="bldg" style="width:16px;height:180px;"></div>
+          <div class="bldg" style="width:9px;height:210px;"></div>
+          <div class="bldg" style="width:9px;height:190px;margin-right:4px;"></div>
+          <div class="bldg" style="width:14px;height:155px;"></div>
+          <div class="bldg" style="width:8px;height:120px;"></div>
+          <div class="bldg" style="width:18px;height:145px;margin-right:3px;"></div>
+          <div class="bldg" style="width:11px;height:100px;"></div>
+          <div class="bldg" style="width:11px;height:128px;"></div>
+          <div class="bldg" style="width:14px;height:88px;"></div>
+          <div class="bldg" style="width:8px;height:72px;"></div>
+          <div class="bldg" style="width:20px;height:110px;"></div>
+          <div class="bldg" style="width:10px;height:82px;"></div>
+          <div class="bldg" style="width:13px;height:94px;"></div>
+          <div class="bldg" style="width:8px;height:58px;"></div>
+          <div class="bldg" style="width:16px;height:76px;"></div>
+          <div class="bldg" style="width:10px;height:52px;"></div>
+          <div class="bldg" style="width:12px;height:66px;"></div>
+          <div class="bldg" style="width:7px;height:46px;"></div>
+          <div class="bldg" style="width:18px;height:58px;"></div>
+        </div>
+      </div>
+      <div class="hero-stat-bar">
+        <div class="hero-stat-bar-inner">
+          <div class="hero-stat"><strong>1,000+</strong>&nbsp;free AA meetings per week</div>
+          <div class="hero-stat"><strong>$0</strong>&nbsp;cost to call any hotline here</div>
+          <div class="hero-stat"><strong>24/7</strong>&nbsp;crisis support available now</div>
+          <div class="hero-stat"><strong>8</strong>&nbsp;sections find what you need fast</div>
+        </div>
       </div>
     </div>
 
@@ -574,9 +719,10 @@
 
         <!-- HOTLINES -->
         <section class="resource-section" id="hotlines">
-          <div class="section-label">Hotlines</div>
-          <h2>Call or text — right now</h2>
-          <p class="section-desc">All of these lines are free, confidential, and answered by real people. No record is created. You do not need insurance to call.</p>
+          <div class="section-banner banner-rose">
+            <div class="banner-icon">📞</div>
+            <div class="banner-text"><h3>Call or text right now</h3><p>All lines are free, confidential, and answered by real people. No record created. No insurance needed.</p></div>
+          </div>
           <div class="res-list">
 
             <a class="res-card" href="tel:8332346343">
@@ -592,7 +738,7 @@
               <span class="badge badge-rose">Crisis</span>
               <div class="res-card-body">
                 <h4>988 Suicide &amp; Crisis Lifeline</h4>
-                <p>Call or text 988 any time. Works for mental health crises, substance use crises, or both. Free and confidential. A real person answers — no robot.</p>
+                <p>Call or text 988 any time. Works for mental health crises, substance use crises, or both. Free and confidential. A real person answers no robot.</p>
                 <span class="res-phone">Call or text 988</span>
               </div>
             </a>
@@ -619,7 +765,7 @@
               <span class="badge badge-blue">General</span>
               <div class="res-card-body">
                 <h4>2-1-1 Illinois</h4>
-                <p>Call or text 211 for free, 24/7 referrals to community resources across Illinois — food, housing, mental health, substance use, and more. Works in Cook County.</p>
+                <p>Call or text 211 for free, 24/7 referrals to community resources across Illinois food, housing, mental health, substance use, and more. Works in Cook County.</p>
                 <span class="res-phone">Call or text 211 &nbsp;·&nbsp; 211illinois.org</span>
               </div>
             </a>
@@ -631,9 +777,15 @@
 
         <!-- FREE TREATMENT -->
         <section class="resource-section" id="treatment">
-          <div class="section-label">Free &amp; Low-Cost Treatment</div>
-          <h2>Treatment regardless of ability to pay</h2>
-          <p class="section-desc">These Chicago-area programs offer free or sliding-scale services. Most accept Medicaid (HealthChoice Illinois). None will turn you away because you can't pay.</p>
+          <div class="section-banner banner-em">
+            <div class="banner-icon">🏥</div>
+            <div class="banner-text"><h3>Treatment regardless of ability to pay</h3><p>Free and sliding-scale programs in Chicago. Most accept Medicaid. None will turn you away because you can't pay.</p></div>
+          </div>
+          <div class="fact-strip">
+            <div class="fact-card"><div class="fact-num">Free</div><p>Above &amp; Beyond serves anyone unable to pay including people experiencing homelessness</p></div>
+            <div class="fact-card"><div class="fact-num rose">Medicaid</div><p>HealthChoice Illinois covers detox, inpatient, IOP, MAT, and outpatient for eligible residents</p></div>
+            <div class="fact-card"><div class="fact-num blue">100+</div><p>Thresholds locations across Chicago and Cook County outpatient, housing, crisis, and more</p></div>
+          </div>
           <div class="res-list">
 
             <a class="res-card" href="https://www.aboveandbeyondcenter.org" target="_blank" rel="noopener">
@@ -650,7 +802,7 @@
               <span class="badge badge-emerald">Free / Medicaid</span>
               <div class="res-card-body">
                 <h4>Thresholds</h4>
-                <p>One of Illinois's largest providers of mental health and substance use treatment — with over 100 locations across Chicago and surrounding counties. Offers outpatient, IOP, crisis response, employment, peer support, and housing. Sliding scale and Medicaid accepted. Their "Living Room" is a walk-in crisis drop-in center.</p>
+                <p>One of Illinois's largest providers of mental health and substance use treatment with over 100 locations across Chicago and surrounding counties. Offers outpatient, IOP, crisis response, employment, peer support, and housing. Sliding scale and Medicaid accepted. Their "Living Room" is a walk-in crisis drop-in center.</p>
                 <span class="res-url">thresholds.org</span>
               </div>
             </a>
@@ -659,7 +811,7 @@
               <span class="badge badge-emerald">Sliding Scale</span>
               <div class="res-card-body">
                 <h4>Healthcare Alternative Systems (HAS)</h4>
-                <p>Multicultural, bilingual (English/Spanish) behavioral health services at 2755 W. Armitage Ave., Chicago. Outpatient addiction treatment, transitional housing, and gender-specific programs for women. Sliding scale fees — Medicaid and state insurance accepted.</p>
+                <p>Multicultural, bilingual (English/Spanish) behavioral health services at 2755 W. Armitage Ave., Chicago. Outpatient addiction treatment, transitional housing, and gender-specific programs for women. Sliding scale fees Medicaid and state insurance accepted.</p>
                 <span class="res-phone">773-252-3100</span>
                 <span class="res-url">has-chicago.org</span>
               </div>
@@ -668,8 +820,8 @@
             <a class="res-card" href="https://www.chestnut.org" target="_blank" rel="noopener">
               <span class="badge badge-emerald">Free / Medicaid</span>
               <div class="res-card-body">
-                <h4>Chestnut Health Systems — Chicago</h4>
-                <p>Nonprofit treatment center — no client is denied treatment based on inability to pay. Offers supervised detox, outpatient, and IOP services. Treatment occurs in small groups with encouragement to continue in peer support.</p>
+                <h4>Chestnut Health Systems Chicago</h4>
+                <p>Nonprofit treatment center no client is denied treatment based on inability to pay. Offers supervised detox, outpatient, and IOP services. Treatment occurs in small groups with encouragement to continue in peer support.</p>
                 <span class="res-url">chestnut.org</span>
               </div>
             </a>
@@ -677,7 +829,7 @@
             <a class="res-card" href="https://www.gatewayfoundation.org" target="_blank" rel="noopener">
               <span class="badge badge-blue">Medicaid</span>
               <div class="res-card-body">
-                <h4>Gateway Foundation — Chicago</h4>
+                <h4>Gateway Foundation Chicago</h4>
                 <p>Accredited treatment center offering inpatient, outpatient, and detox for adults 18+. Accepts Medicaid, many insurance plans, and offers sliding-scale fees. Multiple Chicago-area locations.</p>
                 <span class="res-url">gatewayfoundation.org</span>
               </div>
@@ -686,7 +838,7 @@
             <a class="res-card" href="https://findtreatment.gov" target="_blank" rel="noopener">
               <span class="badge badge-blue">Search Tool</span>
               <div class="res-card-body">
-                <h4>SAMHSA Treatment Locator — filter for Chicago</h4>
+                <h4>SAMHSA Treatment Locator filter for Chicago</h4>
                 <p>Search by your Chicago zip code and filter by type (detox, inpatient, outpatient), payment method (free, Medicaid, sliding scale), and substance type. The most comprehensive database of licensed providers in Cook County.</p>
                 <span class="res-url">findtreatment.gov</span>
               </div>
@@ -699,9 +851,11 @@
 
         <!-- AA MEETINGS -->
         <section class="resource-section" id="aa">
-          <div class="section-label">Alcoholics Anonymous</div>
-          <h2>Chicago AA — over 1,000 free weekly meetings</h2>
-          <p class="section-desc">Chicago has three AA intergroup offices serving the entire city in English and Spanish. Meetings are free, open to anyone, and run from 6am through late evening every day of the week.</p>
+          <div class="section-banner banner-teal">
+            <div class="banner-icon">🤝</div>
+            <div class="banner-text"><h3>Chicago AA 1,000+ free weekly meetings</h3><p>Three intergroup offices serve the whole city in English and Spanish, every day of the week from 6am onward.</p></div>
+          </div>
+          <div class="quote-strip"><div class="qs-quote">&ldquo;</div><div><blockquote>Nothing is more effective against the first drink than working with another alcoholic.<cite>  Chicago AA</cite></blockquote></div></div>
 
           <div class="aa-grid">
             <div class="aa-card">
@@ -720,11 +874,11 @@
               <h5>Comité de Intergrupos</h5>
               <div class="aa-address">2814½ W. 59th St. · Chicago, IL 60629</div>
               <a class="aa-phone" href="tel:7738630172">773-863-0172</a>
-              <div class="aa-note">Serves Spanish-speaking South Side communities — Pilsen, Little Village, Bridgeport, and surrounding areas.</div>
+              <div class="aa-note">Serves Spanish-speaking South Side communities Pilsen, Little Village, Bridgeport, and surrounding areas.</div>
             </div>
             <div class="aa-card">
               <h5>Find a Meeting By Zip Code</h5>
-              <div class="aa-address">chicagoaa.org — full meeting database</div>
+              <div class="aa-address">chicagoaa.org full meeting database</div>
               <a class="aa-phone" href="https://www.chicagoaa.org" target="_blank" rel="noopener">chicagoaa.org</a>
               <div class="aa-note">Search by neighborhood, day, time, or format (open, closed, Big Book, Step, speaker). Available in English and Spanish. Also ASL and Polish.</div>
             </div>
@@ -735,15 +889,16 @@
 
         <!-- PEER SUPPORT -->
         <section class="resource-section" id="peer">
-          <div class="section-label">Peer Support &amp; Meetings</div>
-          <h2>Recovery community — beyond AA</h2>
-          <p class="section-desc">Not everyone connects with AA — and that's okay. Chicago has a strong recovery community with science-based, secular, and specialty options.</p>
+          <div class="section-banner banner-blue">
+            <div class="banner-icon">💬</div>
+            <div class="banner-text"><h3>Recovery community beyond AA</h3><p>Science-based, secular, and specialty peer support options across Chicago. Not everyone connects with 12-step and that's okay.</p></div>
+          </div>
           <div class="res-list">
 
             <a class="res-card" href="https://www.smartrecovery.org/community/calendar.php" target="_blank" rel="noopener">
               <span class="badge badge-blue">Free</span>
               <div class="res-card-body">
-                <h4>SMART Recovery — Chicago Meetings</h4>
+                <h4>SMART Recovery Chicago Meetings</h4>
                 <p>Science-based, no higher power required. Uses cognitive behavioral techniques to build motivation and coping skills. An alternative to 12-step that welcomes people on MAT (Suboxone, methadone). In-person and online meetings available in the Chicago area.</p>
                 <span class="res-url">smartrecovery.org → find meetings</span>
               </div>
@@ -752,8 +907,8 @@
             <a class="res-card" href="https://www.na.org/meetingsearch/" target="_blank" rel="noopener">
               <span class="badge badge-blue">Free</span>
               <div class="res-card-body">
-                <h4>Narcotics Anonymous — Chicago Chapters</h4>
-                <p>14 Chicago-based NA chapters with their own meeting schedules, plus virtual options. Modeled after AA but focused on drug use. Note: some NA groups are not accepting of Suboxone or methadone — SMART Recovery may be a better fit if you are on MAT.</p>
+                <h4>Narcotics Anonymous Chicago Chapters</h4>
+                <p>14 Chicago-based NA chapters with their own meeting schedules, plus virtual options. Modeled after AA but focused on drug use. Note: some NA groups are not accepting of Suboxone or methadone SMART Recovery may be a better fit if you are on MAT.</p>
                 <span class="res-url">na.org → meeting search</span>
               </div>
             </a>
@@ -761,8 +916,8 @@
             <a class="res-card" href="https://www.jointhePhoenix.org" target="_blank" rel="noopener">
               <span class="badge badge-emerald">Free</span>
               <div class="res-card-body">
-                <h4>The Phoenix — Chicago</h4>
-                <p>A sober active community for anyone with at least 48 hours of continuous sobriety. Free fitness classes, yoga, sports, social events, and volunteer opportunities across Chicago. 49+ sober events regularly scheduled in the area — no cost to participate.</p>
+                <h4>The Phoenix Chicago</h4>
+                <p>A sober active community for anyone with at least 48 hours of continuous sobriety. Free fitness classes, yoga, sports, social events, and volunteer opportunities across Chicago. 49+ sober events regularly scheduled in the area no cost to participate.</p>
                 <span class="res-url">jointhePhoenix.org</span>
               </div>
             </a>
@@ -770,7 +925,7 @@
             <a class="res-card" href="https://www.intherooms.com" target="_blank" rel="noopener">
               <span class="badge badge-blue">Online</span>
               <div class="res-card-body">
-                <h4>In The Rooms — Virtual Meetings</h4>
+                <h4>In The Rooms Virtual Meetings</h4>
                 <p>24/7 online recovery community with virtual meetings for AA, NA, and many other recovery programs. Especially useful if you're not ready for in-person, have mobility issues, or work odd hours.</p>
                 <span class="res-url">intherooms.com</span>
               </div>
@@ -779,7 +934,7 @@
             <a class="res-card" href="https://recoverydharma.org/find-a-meeting" target="_blank" rel="noopener">
               <span class="badge badge-purple">Free</span>
               <div class="res-card-body">
-                <h4>Recovery Dharma — Chicago</h4>
+                <h4>Recovery Dharma Chicago</h4>
                 <p>Buddhist-inspired recovery using mindfulness and meditation. Three in-person Chicago meetings plus 10–50 virtual meetings per day, including meetings for LGBTQ+ folks and healthcare workers. No prior meditation experience needed.</p>
                 <span class="res-url">recoverydharma.org → find a meeting</span>
               </div>
@@ -792,12 +947,13 @@
 
         <!-- HARM REDUCTION -->
         <section class="resource-section" id="harmreduction">
-          <div class="section-label">Harm Reduction</div>
-          <h2>Safer right now — no judgment</h2>
-          <p class="section-desc">Harm reduction means meeting people where they are. These resources are available whether you're ready to stop using or not — because your life matters right now.</p>
+          <div class="section-banner banner-purple">
+            <div class="banner-icon">🛡️</div>
+            <div class="banner-text"><h3>Safer right now no judgment</h3><p>These resources are available whether you're ready to stop or not. Your life matters right now, exactly where you are.</p></div>
+          </div>
 
           <div class="note-box">
-            Chicago Recovery Alliance (CRA) reduced staff and services as of August 2025 due to funding constraints. Their services may be limited — verify before visiting. We'll update this as more information becomes available.
+            Chicago Recovery Alliance (CRA) reduced staff and services as of August 2025 due to funding constraints. Their services may be limited verify before visiting. We'll update this as more information becomes available.
           </div>
 
           <div class="res-list">
@@ -805,7 +961,7 @@
             <a class="res-card" href="https://nextdistro.org" target="_blank" rel="noopener">
               <span class="badge badge-emerald">Free</span>
               <div class="res-card-body">
-                <h4>Next Distro — Free Naloxone by Mail</h4>
+                <h4>Next Distro Free Naloxone by Mail</h4>
                 <p>Mail-order Narcan (naloxone) delivered to your door. No questions asked. Free in Illinois. You do not need insurance or a prescription. Also distributes fentanyl test strips and harm reduction supplies.</p>
                 <span class="res-url">nextdistro.org</span>
               </div>
@@ -815,7 +971,7 @@
               <span class="badge badge-emerald">Illinois</span>
               <div class="res-card-body">
                 <h4>Stop Overdose Illinois</h4>
-                <p>Illinois's official overdose prevention website — written by medical professionals. Provides unbiased information on alcohol and drug misuse, overdose recognition, Narcan use instructions, and facts about commonly used substances.</p>
+                <p>Illinois's official overdose prevention website written by medical professionals. Provides unbiased information on alcohol and drug misuse, overdose recognition, Narcan use instructions, and facts about commonly used substances.</p>
                 <span class="res-url">stopoverdoseil.org</span>
               </div>
             </a>
@@ -824,7 +980,7 @@
               <span class="badge badge-warn">Limited services</span>
               <div class="res-card-body">
                 <h4>Chicago Recovery Alliance (CRA)</h4>
-                <p>A Chicago-based harm reduction organization offering Naloxone distribution, overdose training, safer drug use education, HIV and HCV counseling, and treatment referrals. Note: services reduced as of August 2025 due to funding cuts — call before visiting.</p>
+                <p>A Chicago-based harm reduction organization offering Naloxone distribution, overdose training, safer drug use education, HIV and HCV counseling, and treatment referrals. Note: services reduced as of August 2025 due to funding cuts call before visiting.</p>
                 <span class="res-url">anypositivechange.org</span>
               </div>
             </a>
@@ -836,15 +992,16 @@
 
         <!-- MENTAL HEALTH -->
         <section class="resource-section" id="mental-health">
-          <div class="section-label">Mental Health + Addiction</div>
-          <h2>Co-occurring conditions — both matter</h2>
-          <p class="section-desc">About 74% of people with addiction also have a mental health condition. These Chicago resources address both together.</p>
+          <div class="section-banner banner-blue">
+            <div class="banner-icon">🧠</div>
+            <div class="banner-text"><h3>Mental health + addiction both matter</h3><p>About 74% of people with addiction also have a mental health condition. These Chicago resources treat both together.</p></div>
+          </div>
           <div class="res-list">
 
             <a class="res-card" href="https://www.thresholds.org/programs-services/crisis-response" target="_blank" rel="noopener">
               <span class="badge badge-rose">Crisis</span>
               <div class="res-card-body">
-                <h4>Thresholds Living Room — Walk-In Crisis Center</h4>
+                <h4>Thresholds Living Room Walk-In Crisis Center</h4>
                 <p>Chicago's walk-in crisis drop-in center for people experiencing a mental health or substance use crisis. A safe, supportive alternative to the emergency room. Peer-led, trauma-informed. No appointment needed.</p>
                 <span class="res-url">thresholds.org → crisis response</span>
               </div>
@@ -853,7 +1010,7 @@
             <a class="res-card" href="https://www.nami.org/Support-Education/Support-Groups" target="_blank" rel="noopener">
               <span class="badge badge-blue">Free</span>
               <div class="res-card-body">
-                <h4>NAMI Chicago — Support Groups</h4>
+                <h4>NAMI Chicago Support Groups</h4>
                 <p>Free peer-led support groups for people living with mental health conditions, including those with co-occurring addiction. Also offers family support groups for loved ones. Helpline: 312-563-0445, M–F 9am–5pm.</p>
                 <span class="res-url">nami.org → support groups</span>
               </div>
@@ -862,7 +1019,7 @@
             <a class="res-card" href="https://www.chicago.gov/city/en/depts/cdph/provdrs/behavioral_health.html" target="_blank" rel="noopener">
               <span class="badge badge-blue">City of Chicago</span>
               <div class="res-card-body">
-                <h4>Chicago Connects — City of Chicago</h4>
+                <h4>Chicago Connects City of Chicago</h4>
                 <p>The City of Chicago's official resource listing for drug and alcohol treatment programs, mental health services, hotlines, and peer support groups. A good starting point for navigating city-funded services.</p>
                 <span class="res-url">chicago.gov → behavioral health</span>
               </div>
@@ -875,15 +1032,16 @@
 
         <!-- HOUSING & REENTRY -->
         <section class="resource-section" id="housing">
-          <div class="section-label">Housing &amp; Reentry</div>
-          <h2>After treatment — the next step</h2>
-          <p class="section-desc">Finding stable housing and support after treatment is one of the hardest parts. These Chicago resources help with sober living, reentry, and what comes next.</p>
+          <div class="section-banner banner-dark">
+            <div class="banner-icon">🏠</div>
+            <div class="banner-text"><h3>After treatment the next step</h3><p>Stable housing is one of the strongest predictors of lasting recovery. These Chicago resources help with sober living, reentry, and what comes next.</p></div>
+          </div>
           <div class="res-list">
 
             <a class="res-card" href="https://www.thresholds.org/programs-services/housing-residential-programs" target="_blank" rel="noopener">
               <span class="badge badge-emerald">Free / Medicaid</span>
               <div class="res-card-body">
-                <h4>Thresholds — Supportive Housing</h4>
+                <h4>Thresholds Supportive Housing</h4>
                 <p>Illinois's largest provider of supported housing, with options across Chicago and surrounding areas. Includes multi-family buildings, scattered-site apartments, and group homes. Clinical support available at varying levels. Most services covered by Medicaid.</p>
                 <span class="res-url">thresholds.org → housing</span>
               </div>
@@ -892,8 +1050,8 @@
             <a class="res-card" href="https://www.tascil.org" target="_blank" rel="noopener">
               <span class="badge badge-blue">Reentry</span>
               <div class="res-card-body">
-                <h4>TASC — Treatment Alternatives for Safe Communities</h4>
-                <p>Specializes in helping people navigate addiction treatment alongside legal system involvement — including pre-release services for people who are incarcerated and post-release support after they return to the community. Serves Cook County.</p>
+                <h4>TASC Treatment Alternatives for Safe Communities</h4>
+                <p>Specializes in helping people navigate addiction treatment alongside legal system involvement including pre-release services for people who are incarcerated and post-release support after they return to the community. Serves Cook County.</p>
                 <span class="res-url">tascil.org</span>
               </div>
             </a>
@@ -901,7 +1059,7 @@
             <a class="res-card" href="https://findtreatment.gov" target="_blank" rel="noopener">
               <span class="badge badge-blue">Search Tool</span>
               <div class="res-card-body">
-                <h4>SAMHSA — Find Sober Living Near Chicago</h4>
+                <h4>SAMHSA Find Sober Living Near Chicago</h4>
                 <p>Use the SAMHSA treatment locator and filter by "halfway house" or "sober living" to find options near your Chicago zip code. Many are low-cost or accept Medicaid.</p>
                 <span class="res-url">findtreatment.gov</span>
               </div>
@@ -914,16 +1072,17 @@
 
         <!-- SPANISH -->
         <section class="resource-section" id="spanish">
-          <div class="section-label">En Español</div>
-          <h2>Recursos en español — Chicago</h2>
-          <p class="section-desc">Chicago tiene una comunidad de habla hispana grande con recursos dedicados para personas que buscan ayuda con adicciones y recuperación.</p>
+          <div class="section-banner banner-rose">
+            <div class="banner-icon">🌎</div>
+            <div class="banner-text"><h3>Recursos en español Chicago</h3><p>Chicago tiene una comunidad hispana grande con recursos dedicados en español para personas que buscan ayuda con adicciones y recuperación.</p></div>
+          </div>
           <div class="res-list">
 
             <a class="res-card" href="tel:7734896438">
               <span class="badge badge-emerald">Gratis</span>
               <div class="res-card-body">
-                <h4>Oficina Intergrupal de Chicago — AA en Español (West Side)</h4>
-                <p>Serves Spanish-speaking AA members on Chicago's West Side — Humboldt Park, Logan Square, and surrounding neighborhoods. Call for meeting times and locations near you.</p>
+                <h4>Oficina Intergrupal de Chicago AA en Español (West Side)</h4>
+                <p>Serves Spanish-speaking AA members on Chicago's West Side Humboldt Park, Logan Square, and surrounding neighborhoods. Call for meeting times and locations near you.</p>
                 <span class="res-phone">773-489-6438 &nbsp;·&nbsp; 2536 W. North Ave., Chicago</span>
               </div>
             </a>
@@ -931,8 +1090,8 @@
             <a class="res-card" href="tel:7738630172">
               <span class="badge badge-emerald">Gratis</span>
               <div class="res-card-body">
-                <h4>Comité de Intergrupos — AA en Español (South Side)</h4>
-                <p>Serves Spanish-speaking AA members on the South Side — Pilsen, Little Village, Bridgeport, and surrounding communities. Call for meeting times and locations near you.</p>
+                <h4>Comité de Intergrupos AA en Español (South Side)</h4>
+                <p>Serves Spanish-speaking AA members on the South Side Pilsen, Little Village, Bridgeport, and surrounding communities. Call for meeting times and locations near you.</p>
                 <span class="res-phone">773-863-0172 &nbsp;·&nbsp; 2814½ W. 59th St., Chicago</span>
               </div>
             </a>
@@ -940,7 +1099,7 @@
             <a class="res-card" href="https://www.has-chicago.org" target="_blank" rel="noopener">
               <span class="badge badge-blue">Bilingüe</span>
               <div class="res-card-body">
-                <h4>Healthcare Alternative Systems (HAS) — Servicios Bilingües</h4>
+                <h4>Healthcare Alternative Systems (HAS) Servicios Bilingües</h4>
                 <p>Bilingual (English/Spanish) outpatient addiction treatment and social services in Chicago. Sliding scale fees, Medicaid accepted. Gender-specific programs for women. Located at 2755 W. Armitage Ave.</p>
                 <span class="res-phone">773-252-3100</span>
               </div>
@@ -949,7 +1108,7 @@
             <a class="res-card" href="tel:8332346343">
               <span class="badge badge-emerald">Illinois</span>
               <div class="res-card-body">
-                <h4>Illinois Helpline — disponible en español</h4>
+                <h4>Illinois Helpline disponible en español</h4>
                 <p>The Illinois Helpline has Spanish-language support available. Free, confidential, 24/7. Call or text to be connected with a Spanish-speaking specialist who can help you find treatment in Cook County.</p>
                 <span class="res-phone">833-234-6343 &nbsp;·&nbsp; texto "AYUDA" al 833234</span>
               </div>
@@ -1038,17 +1197,17 @@
       <div class="footer-top">
         <div>
           <a href="/" class="footer-logo">not alone in <span>this</span></a>
-          <p class="footer-tagline">A free, judgment-free resource for people navigating addiction and recovery — and the people who love them. No ads. No jargon. No pressure.</p>
+          <p class="footer-tagline">A free, judgment-free resource for people navigating addiction and recovery and the people who love them. No ads. No jargon. No pressure.</p>
           <p class="footer-disclaimer">Not a medical provider. In an emergency, call 911.</p>
         </div>
         <div>
           <h4>Resources</h4>
           <ul>
             <li><a href="index.html#resources">Find Treatment</a></li>
-            <li><a href="chicago-resources.html#harmreduction">Harm Reduction</a></li>
-            <li><a href="chicago-resources.html#aa">Chicago AA</a></li>
-            <li><a href="chicago-resources.html#housing">Housing &amp; Reentry</a></li>
-            <li><a href="chicago-resources.html#spanish">En Español</a></li>
+            <li><a href="#harmreduction">Harm Reduction</a></li>
+            <li><a href="#aa">Chicago AA</a></li>
+            <li><a href="#housing">Housing &amp; Reentry</a></li>
+            <li><a href="#spanish">En Español</a></li>
           </ul>
         </div>
         <div>
@@ -1057,7 +1216,7 @@
             <li><a href="index.html#start">Start Here</a></li>
             <li><a href="index.html#glossary">Glossary</a></li>
             <li><a href="index.html#expect">What to Expect</a></li>
-            <li><a href="chicago-resources.html">Chicago Resources</a></li>
+            <li><a href="#">Chicago Resources</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="mailto:sartecn@gmail.com?subject=Resource%20Suggestion">Suggest a Resource</a></li>
           </ul>
