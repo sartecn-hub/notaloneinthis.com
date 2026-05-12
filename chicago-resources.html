@@ -1233,7 +1233,7 @@
     function toggleMenu(btn) {
       var menu = document.getElementById('mobile-menu');
       var open = menu.classList.toggle('open');
-      btn.setAttribute('aria-expanded', open);
+      btn.setAttribute('aria-expanded', String(open));
     }
     function closeMobile() {
       document.getElementById('mobile-menu').classList.remove('open');
