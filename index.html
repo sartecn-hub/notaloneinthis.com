@@ -669,7 +669,7 @@
     .hero-wrap::before {
       content: '';
       position: absolute;
-      inset: 0;
+      top: 0; right: 0; bottom: 0; left: 0;
       background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1400&q=80&auto=format&fit=crop');
       background-size: cover;
       background-position: center 60%;
@@ -708,7 +708,7 @@
     .photo-strip-item:hover img { filter: saturate(1); transform: scale(1.04); }
     .photo-strip-item .strip-overlay {
       position: absolute;
-      inset: 0;
+      top: 0; right: 0; bottom: 0; left: 0;
       background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 60%);
       display: flex;
       align-items: flex-end;
@@ -749,7 +749,7 @@
     .photo-feature-card:hover img { filter: saturate(0.9) brightness(1); transform: scale(1.03); }
     .photo-feature-card .pf-overlay {
       position: absolute;
-      inset: 0;
+      top: 0; right: 0; bottom: 0; left: 0;
       background: linear-gradient(135deg, rgba(14,158,110,0.7) 0%, rgba(59,130,196,0.4) 100%);
       display: flex;
       flex-direction: column;
@@ -1180,17 +1180,20 @@
   <script>
     function toggleMenu(btn) {
       var menu = document.getElementById('mobile-menu');
+      if (!menu) return;
       var open = menu.classList.toggle('open');
-      btn.setAttribute('aria-expanded', open);
+      btn.setAttribute('aria-expanded', String(open));
     }
     function closeMobile() {
-      document.getElementById('mobile-menu').classList.remove('open');
-      document.querySelector('.nav-hamburger').setAttribute('aria-expanded', 'false');
+      var menu = document.getElementById('mobile-menu');
+      var btn = document.querySelector('.nav-hamburger');
+      if (menu) menu.classList.remove('open');
+      if (btn) btn.setAttribute('aria-expanded', 'false');
     }
-    // Close mobile menu on outside click
     document.addEventListener('click', function(e) {
       var menu = document.getElementById('mobile-menu');
       var btn = document.querySelector('.nav-hamburger');
+      if (!menu || !btn) return;
       if (!menu.contains(e.target) && !btn.contains(e.target)) {
         menu.classList.remove('open');
         btn.setAttribute('aria-expanded', 'false');
